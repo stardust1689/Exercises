@@ -79,7 +79,7 @@ def is_curzon(numbah):
 # print(is_curzon(10))
 # print(is_curzon(14))
 
-# Returns how much time is saved when you drive a given distance at a given speed above that of the given speed limit
+# Returns how much (or little) time is saved when you drive a given distance at a given speed above that of the given speed limit
 def time_saved(speed_limit, your_speed, distance, time_unit="hours"):
     time_speeding = distance / your_speed
     time_at_limit = distance / speed_limit
@@ -183,17 +183,17 @@ def karaca(stringer):
 import math
 
 # Returns the number of given integer powers (n) between one number and another (a and b), inclusive
-def powerRanger(n,a,b):
+def power_ranger(n,a,b):
     bottom = math.ceil( a**(1/n) )
     top = math.floor( b**(1/n) )
     in_range = list(range(bottom, top+1))
     return len(in_range)
     
-# print(powerRanger(2, 49, 65)) # => 2, because 7**2 and 8**2 (2 numbers) are inclusively between 49 and 65.
-# print(powerRanger(3, 1, 27))
-# print(powerRanger(10, 1, 5))
-# print(powerRanger(5, 31, 33))
-# print(powerRanger(4, 250, 1300))
+# print(power_ranger(2, 49, 65)) # => 2, because 7**2 and 8**2 (2 numbers) are inclusively between 49 and 65.
+# print(power_ranger(3, 1, 27))
+# print(power_ranger(10, 1, 5))
+# print(power_ranger(5, 31, 33))
+# print(power_ranger(4, 250, 1300))
 
 # Take any number of lists of integers, combines them, and checks if all integers between the minimum and maximum of the combined list is present (redundencies not allowed)
 def consecutive_combo(*args):
@@ -215,3 +215,20 @@ def consecutive_combo(*args):
 # print(consecutive_combo([1, 4, 6, 5], [2, 7, 8, 9]))
 # print(consecutive_combo([1, 4, 5, 6], [2, 3, 7, 8, 10]))
 # print(consecutive_combo([44, 46], [45]))
+
+# takes an list and returns the majority voite from that list, or the item whose count is greater than half the list's length
+def majority_vote(lst):
+    for item in lst:
+        if lst.count(item) > len(lst) / 2:
+            return item
+
+# print(majority_vote([]))
+# print(majority_vote(["A"]))
+# print(majority_vote(["A", "B"]))
+# print(majority_vote(["A", "B", "B", "B", "A", "A"]))
+# print(majority_vote(["B", "B", "B"]))
+# print(majority_vote(["A", "B", "B"]))
+# print(majority_vote(["A", "A", "B"]))
+# print(majority_vote(["A", "A", "A", "B", "C", "A"]))
+# print(majority_vote(["B", "A", "B", "B", "C", "A", "B", "B"]))
+# print(majority_vote(["A", "B", "B", "A", "C", "C"]))

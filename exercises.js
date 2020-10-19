@@ -1,3 +1,4 @@
+// Checks whether a given array contains the number 7.
 function sevenBoom(array) {
     if (array.includes(7)) {
         return "Boom!"
@@ -5,13 +6,14 @@ function sevenBoom(array) {
     return "there is no 7 in the array"
 }
 
-function foo() {
-    for (var i = 0; i < arguments.length; i++) {
-        console.log(arguments[i]);
-    }
-}
+// function foo() {
+//     for (var i = 0; i < arguments.length; i++) {
+//         console.log(arguments[i]);
+//     }
+// }
 
-function combonations() {
+// Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item. This is actually just the product of the numbers of items per each set; i.e. the product of the arguments.
+function combinations() {
     let args = Array.from(arguments);
     let total = 1;
     for (let ind = 0; ind < args.length; ind++) {
@@ -20,62 +22,7 @@ function combonations() {
     return total;
 }
 
-function addressExtractor(str, patt) {
-    return str.match(patt);
-}
-
-let my_str = "123 Redding Dr. 1560 Knoxville Ave. 3030 Norwalk Dr. 5 South St.";
-
-function addressExtractor(my_str) {
-    let pattern = /\d[\s\w]{1,}\./g;
-    return my_str.match(pattern)
-}
-
-let movies = [
-    {
-        title: "The Hunchback of Notre Dame",
-        rating: 8,
-        hasWatched: true
-    },
-    {
-        title: "The Road to El Dorado",
-        rating: null,
-        hasWatched: false
-    },
-    {
-        title: "Toy Story",
-        rating: 9,
-        hasWatched: true
-    },
-    {
-        title: "The Tigger Movie",
-        rating: null,
-        hasWatched: false
-    }
-]
-
-// for (let i = 0; i <= movies.length - 1; i++) {
-//     if (movies[i].hasWatched === true) {
-//         console.log("You have watched " + movies[i].title + " - " + movies[i].rating/2 + " stars.")
-//     }
-//     else {
-//         console.log("You have not watched " + movies[i].title + ".")
-//     }
-// };
-
-// movies.forEach( function(movie) {
-//     let result = "You have ";
-//     if (movie.hasWatched) {
-//         result += "watched ";
-//     }
-//     else {
-//         result += "not seen ";
-//     }
-//     result += "\"" + movie.title + "\" - ";
-//     result += movie.rating/2 + " stars."
-//     console.log(result)
-// });
-
+// Takes an array of strings and returns only the strings that have numbers in them
 function numInStr(arrayOfStrings) {
     let numbers = "1234567890";
     function isNumber(char) {
@@ -96,6 +43,7 @@ function numInStr(arrayOfStrings) {
     return result;
 };
 
+// Checks whether a number is "oddish" or "evenish." A number is oddish or evenish depending on whether the sum of the digits is odd or even.
 function oddishOrEvenish(number) {
     if (number % 2 === 0) {
         return "Evenish";
@@ -110,6 +58,7 @@ function oddishOrEvenish(number) {
     return "Evenish";
 };
 
+// Checks whether there is at least one instance in a string where both the last letter of one word and the first of the adjacent word are vowels
 function hasVowelLinks(str) {
     let wordLinks = [];
     for (let i = 0; i < str.length - 2; i++) {
@@ -122,6 +71,7 @@ function hasVowelLinks(str) {
     return vowelLinks.length > 0;
 }
 
+// Shows the "leaders" in an array of numbers, or the numbers that are larger than all of the following numbers in the array.
 function leader(arr) {
     let leaders = [];
     for (let i = 0; i < arr.length; i++) {
@@ -133,6 +83,8 @@ function leader(arr) {
     return leaders;
 }
 
+// Takes two binary objects (numbers or strings) with equal numbers of ones and zeros and returns the number of swaps betwwen two numbers in one object to make it eqaul the other.
+// Example: the number 1001 takes two swaps of numbers before it equals 0110.
 function minSwaps(binary1, binary2) {
     let total_swaps = 0;
     for (let i = 0; i < binary1.length; i++) {
@@ -143,6 +95,7 @@ function minSwaps(binary1, binary2) {
     return Math.floor(total_swaps);
 }
 
+// Checks whether an integer has all number 0-9 included in its digits. MIGHT work with large integers.
 function isPandigital(integer) {
     let exponent = Math.floor(Math.log10(integer));
     let digitArray = [];
@@ -158,14 +111,24 @@ function isPandigital(integer) {
         exponent -= 1;
     }
 
-    console.log(digitArray)
+    console.log(digitArray);
 
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
     for (let i = 0; i < numbers.length; i++) {
         if (!digitArray.includes(numbers)) {
-            return false
+            return false;
         }
     }
 
+    return true;
+}
+
+// Checks whether a 3D rectangular brick with dimensions a, b, and c can fit through a rectangular hole with width w and height h. The brick may be turned, but only in right angles
+function doesBrickFit(a, b, c, w, h) {
+    if ((w < a && (h < b || w < c)) || 
+        (w < b && (h < a || h < c)) || 
+        (w < c && (h < a || h < b))) {
+        return false;
+    }
     return true;
 }
