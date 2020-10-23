@@ -232,3 +232,34 @@ def majority_vote(lst):
 # print(majority_vote(["A", "A", "A", "B", "C", "A"]))
 # print(majority_vote(["B", "A", "B", "B", "C", "A", "B", "B"]))
 # print(majority_vote(["A", "B", "B", "A", "C", "C"]))
+
+# Checks whether given number is prime
+def is_prime(number):
+    if number <= 1:
+        return False
+    try:
+        range(2, number)
+    except:
+        return False
+    for num in range(2 , number):
+        if number % num == 0:
+            return False
+    return True
+
+# Returns the sum of all prime numbers in the given list
+def sum_primes(lst):
+    primes = []
+    for num in lst:
+        if is_prime(num):
+            primes.append(num)
+    return sum(primes)
+
+# print(sum_primes(list(range(1, 61))))
+# print(sum_primes([1,2,3,4,5,6,7,8,9,10]))
+# print(sum_primes([2,3,4,11,20,50,71]))
+# print(sum_primes([19,21,24,27,30,37]))
+# print(sum_primes([69,79,87,97,101]))
+# print(sum_primes([53,59,28,50,45,33,61]))
+# print(sum_primes([]))
+# print(sum_primes([11,11,11,11,11,22,22,22]))
+# print(sum_primes([67,24,58,28,71,73,99]))
