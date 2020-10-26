@@ -132,3 +132,20 @@ function doesBrickFit(a, b, c, w, h) {
     }
     return true;
 }
+
+// Checks whether a string is ALMOST a palindrome, such that the string is spelled the same forwards and backwards if one and only one character is changed to another
+function almostPalindrome(string) {
+    let stringArray = string.split("");
+    let reverseArray = stringArray.slice().reverse();
+
+    let checkForOne = stringArray.filter(function(character, index) {
+        if (character !== reverseArray[index]) {
+            return true;
+        }
+    });
+
+    if (checkForOne.length === 2) {
+        return true;
+    }
+    return false;
+}

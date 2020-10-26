@@ -263,3 +263,71 @@ def sum_primes(lst):
 # print(sum_primes([]))
 # print(sum_primes([11,11,11,11,11,22,22,22]))
 # print(sum_primes([67,24,58,28,71,73,99]))
+
+# Returns the factorial of the number (number!, or 1 * 2 * 3 *...* (number-1) * number)
+def factorial(number):
+    if number == 0 or number == 1:
+        return 1
+    factors = range(2, number+1)
+    if number > 1:
+        result = 1
+        for number in factors:
+            result = result*number
+        return result
+
+# "Kempner" function; returns the smallest integer greater than 0 whose factorial is divisible by the input. Returns 0 if input is not an integer or is <= 0.
+def kempner(number):
+    if type(number) != int or number <= 0:
+        return 0
+    kemp = 1
+    while factorial(kemp) % number != 0:
+        kemp += 1
+    return kemp
+        
+# print(kempner(11))
+# print(kempner(6))
+# print(kempner(10))
+# print(kempner(2))
+# print(kempner(21))
+# print(kempner(1))
+# print(kempner(4))
+# print(kempner(13))
+# print(kempner(29))
+# print(kempner(68))
+# print(kempner(71))
+# print(kempner(100))
+# print(kempner(0))
+# print(kempner(-4))
+# print(kempner(True))
+# print(kempner(4.5))
+
+# Checks a string whether or not all instances of the character "first" come before all instances of the character "second"
+def first_before_second(string, first, second):
+    second_index = string.find(second)
+    if second_index == -1:
+        return False
+    string_part_1 = string[ : second_index]
+    string_part_2 = string[second_index :]
+    if string_part_1.find(first) == -1:
+        return False
+    
+    for char in string_part_2:
+        if char == first:
+            return False
+    
+    return True
+    
+# print(first_before_second("a rabbit jumps joyfully", "a", "j")) # => True, all instances of "a" happen before the first instance of "j".
+# print(first_before_second("knaves knew about waterfalls", "k", "w"))
+# print(first_before_second("maria makes money", "m", "o"))
+# print(first_before_second("the hostess made pecan pie", "h", "p"))
+# print(first_before_second("barry the butterfly flew away", "b", "f"))
+# print(first_before_second("moody muggles", "m", "g"))
+# print(first_before_second("happy birthday", "a", "y")) # => False, the "y" in "happy" comes before the "a" in "birthday".
+# print(first_before_second("precarious kangaroos", "k", "a"))
+# print(first_before_second("maria makes money", "m", "i"))
+# print(first_before_second("taken by the beautiful sunrise", "u", "s"))
+# print(first_before_second("sharp cheddar biscuit", "t", "s"))
+# print(first_before_second("moody muggles", "m", "o"))
+# print(first_before_second("asd", "d", "a"))
+    
