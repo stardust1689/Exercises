@@ -96,18 +96,18 @@ function minSwaps(binary1, binary2) {
 }
 
 // Checks whether an integer has all number 0-9 included in its digits. MIGHT work with large integers.
-function isPandigital(integer) {
-    let exponent = Math.floor(Math.log10(integer));
+function isPandigital(int) {
+    let exponent = Math.floor(Math.log10(int));
     let digitArray = [];
-    while (integer > 0) {
-        if (integer < 10) {
-            digitArray.push(integer);
+    while (int > 0) {
+        if (int < 10) {
+            digitArray.push(int);
             break;
         }
-        let digitToAdd = Math.floor(integer / (10**exponent));
+        let digitToAdd = Math.floor(int / (10**exponent));
         digitArray.push(digitToAdd);
-        integer -= digitToAdd * 10**exponent;
-        console.log(integer);
+        int -= digitToAdd * 10**exponent;
+        console.log(int);
         exponent -= 1;
     }
 
@@ -135,7 +135,7 @@ function doesBrickFit(a, b, c, w, h) {
 
 // Checks whether a string is ALMOST a palindrome, such that the string is spelled the same forwards and backwards if one and only one character is changed to another
 function almostPalindrome(string) {
-    let stringArray = string.split("");
+    let stringArray = string.split('');
     let reverseArray = stringArray.slice().reverse();
 
     let checkForOne = stringArray.filter(function(character, index) {
@@ -148,4 +148,26 @@ function almostPalindrome(string) {
         return true;
     }
     return false;
+}
+
+// Returns the Fibonacci number of the given index
+function fib(num) {
+    if (num === 0 || num === 1) {
+        return num;
+    }
+    return fib(num - 2) + fib(num - 1);
+}
+
+// Returns the total number of non-nested items in a nested array (empty arrays within the initial array count as 1)
+function getLength(arr) {
+    let result = arr.length;
+    for (let item of arr) {
+        if (Array.isArray(item)) {
+            if (item.length === 0) {
+                result++;
+            }
+            result += (getLength(item) - 1);
+        }
+    }
+    return result;
 }
