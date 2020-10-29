@@ -150,12 +150,12 @@ function almostPalindrome(string) {
     return false;
 }
 
-// Returns the Fibonacci number of the given index
-function fib(num) {
+// Returns the Fibonacci number of the given index using recursion
+function fibo(num) {
     if (num === 0 || num === 1) {
         return num;
     }
-    return fib(num - 2) + fib(num - 1);
+    return fibo(num - 2) + fibo(num - 1);
 }
 
 // Returns the total number of non-nested items in a nested array (empty arrays within the initial array count as 1)
@@ -170,4 +170,16 @@ function getLength(arr) {
         }
     }
     return result;
+}
+
+// "Maps" a string into numbers (one for each unique character) and returns an array of the string as these mapped numbers
+function characterMapping(str) {
+    let characters = [...(new Set(str.split('')))];
+	
+	let map = str.split('').map(function(char) {
+        let number = characters.indexOf(char);
+		return number
+    });
+	
+	return map;
 }
