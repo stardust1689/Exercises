@@ -196,26 +196,10 @@ function isPositiveDominant(arr) {
     return positive > negative;
 }
 
+// Returns whether a number is Zygodrome, or a number that can be partitioned into clusters of repeating digits (so cannot be a single digit number). So, 33 is Zygodrome, but 332, 1, and 1001 are not.
 function isZygodrome(num) {
     let numAsArray = num.toString().split('');
-    // console.log(numAsArray);
-    // console.log(numAsArray.slice(1, numAsArray.length - 1))
-    // if (numAsArray.length < 2) {
-    //     console.log("first");
-    //     return false;
-    // }
-    // else if (numAsArray.length === 2) {
-    //     console.log("second");
-    //     if (numAsArray[0] === numAsArray[1]) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-    // console.log("third");
     let result = numAsArray.every((num, index) => {
-        console.log(num);
-        console.log(numAsArray[index - 1]);
-        console.log(numAsArray[index + 1]);
         if (index === 0) {
             return num === numAsArray[index + 1];
         }
