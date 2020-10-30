@@ -17,10 +17,6 @@ def find_odd_products(integers):
 # seq2 = (9,10,11,12,12,13,14,15,16,17)
 # seq3 = {18,19,20,21,22,23,25,26,29}
 
-# print(find_odd_products(seq1))
-# print(find_odd_products(seq2))
-# print(find_odd_products(seq3))
-
 # Prints all items in a for loop in reverse order as their negative values
 def print_for_loop(start = 10, end = 1, step = -1):
     for item in range(start, end-1, step):
@@ -36,9 +32,6 @@ def middle_chars(a_string):
         result += a_string[num]
     return result
 
-# print(middle_chars("JhonDipPeta"))
-# print(middle_chars("JaSonAy"))
-
 import string
 
 # Remove all non-alphanumeric characters in a string (spaces allowed). Uses callback remove_bad() to filter out symbols.
@@ -52,9 +45,6 @@ def remove_bad(char):
 def remove_symbols(my_string):
     return "".join(list(filter(remove_bad, my_string)))
 
-# print(remove_symbols("/*Jon is @developer & musician"))
-# print(remove_symbols(":( T&)VPT&S(((OAT"))
-
 # Checks whether a given value is in a given dictionary
 def check_dict_values(dictionary, value):
     if value in list(dictionary.values()):
@@ -63,8 +53,6 @@ def check_dict_values(dictionary, value):
 
 # my_dictionary = {'a': 100, 'b': 200, 'c': 300}
 # my_value = 200
-
-# print(check_dict_values(my_dictionary, my_value))
 
 # Checks whether a number is a "Curzon" number. A Curzon number is one where 2 to the power of that number plus 1 is divisible by two times that number plus one.
 def is_curzon(numbah):
@@ -75,20 +63,11 @@ def is_curzon(numbah):
         return True
     return False
 
-# print(is_curzon(5))
-# print(is_curzon(10))
-# print(is_curzon(14))
-
 # Returns how much (or little) time is saved when you drive a given distance at a given speed above that of the given speed limit
 def time_saved(speed_limit, your_speed, distance, time_unit="hours"):
     time_speeding = distance / your_speed
     time_at_limit = distance / speed_limit
     return f"{time_at_limit - time_speeding} {time_unit}"
-
-# print(time_saved(80, 90, 40))
-# print(time_saved(80, 90, 4000))
-# print(time_saved(80, 100, 40))
-# print(time_saved(80, 100, 10))
 
 # Takes a string and returns it in Morse code 
 char_to_dots = {
@@ -152,10 +131,6 @@ def encode_morse(message_string):
         morse += (char_to_dots[char.capitalize()] + " ")
     return morse
 
-# print(encode_morse("HELP ME !"))
-# print(encode_morse("EDABBIT CHALLENGE"))
-# print(encode_morse("sos"))
-
 import datetime
 
 # Checks whether "Friday the 13th" occurs in a given month and year
@@ -164,8 +139,6 @@ def has_friday_13(month, year):
     if thirteenth.weekday() == 4:
         return True
     return False
-
-# print(has_friday_13(1, 1985))
 
 # Encodes a string by reversing it, replacing all vowels with a certain number, then adding "aca" at the end.
 def karaca(stringer):
@@ -188,12 +161,6 @@ def power_ranger(n,a,b):
     top = math.floor( b**(1/n) )
     in_range = list(range(bottom, top+1))
     return len(in_range)
-    
-# print(power_ranger(2, 49, 65)) # => 2, because 7**2 and 8**2 (2 numbers) are inclusively between 49 and 65.
-# print(power_ranger(3, 1, 27))
-# print(power_ranger(10, 1, 5))
-# print(power_ranger(5, 31, 33))
-# print(power_ranger(4, 250, 1300))
 
 # Take any number of lists of integers, combines them, and checks if all integers between the minimum and maximum of the combined list is present (redundencies not allowed)
 def consecutive_combo(*args):
@@ -210,28 +177,12 @@ def consecutive_combo(*args):
     if len(combo) == 0:
         return True
     return False
-            
-# print(consecutive_combo([7, 4, 5, 1], [2, 3, 6]))
-# print(consecutive_combo([1, 4, 6, 5], [2, 7, 8, 9]))
-# print(consecutive_combo([1, 4, 5, 6], [2, 3, 7, 8, 10]))
-# print(consecutive_combo([44, 46], [45]))
 
 # takes an list and returns the majority voite from that list, or the item whose count is greater than half the list's length
 def majority_vote(lst):
     for item in lst:
         if lst.count(item) > len(lst) / 2:
             return item
-
-# print(majority_vote([]))
-# print(majority_vote(["A"]))
-# print(majority_vote(["A", "B"]))
-# print(majority_vote(["A", "B", "B", "B", "A", "A"]))
-# print(majority_vote(["B", "B", "B"]))
-# print(majority_vote(["A", "B", "B"]))
-# print(majority_vote(["A", "A", "B"]))
-# print(majority_vote(["A", "A", "A", "B", "C", "A"]))
-# print(majority_vote(["B", "A", "B", "B", "C", "A", "B", "B"]))
-# print(majority_vote(["A", "B", "B", "A", "C", "C"]))
 
 # Checks whether given number is prime
 def is_prime(number):
@@ -254,16 +205,6 @@ def sum_primes(lst):
             primes.append(num)
     return sum(primes)
 
-# print(sum_primes(list(range(1, 61))))
-# print(sum_primes([1,2,3,4,5,6,7,8,9,10]))
-# print(sum_primes([2,3,4,11,20,50,71]))
-# print(sum_primes([19,21,24,27,30,37]))
-# print(sum_primes([69,79,87,97,101]))
-# print(sum_primes([53,59,28,50,45,33,61]))
-# print(sum_primes([]))
-# print(sum_primes([11,11,11,11,11,22,22,22]))
-# print(sum_primes([67,24,58,28,71,73,99]))
-
 # Returns the factorial of the number (number!, or 1 * 2 * 3 *...* (number-1) * number)
 def factorial(number):
     if number == 0 or number == 1:
@@ -283,23 +224,6 @@ def kempner(number):
     while factorial(kemp) % number != 0:
         kemp += 1
     return kemp
-        
-# print(kempner(11))
-# print(kempner(6))
-# print(kempner(10))
-# print(kempner(2))
-# print(kempner(21))
-# print(kempner(1))
-# print(kempner(4))
-# print(kempner(13))
-# print(kempner(29))
-# print(kempner(68))
-# print(kempner(71))
-# print(kempner(100))
-# print(kempner(0))
-# print(kempner(-4))
-# print(kempner(True))
-# print(kempner(4.5))
 
 # Checks a string whether or not all instances of the character "first" come before all instances of the character "second"
 def first_before_second(string, first, second):
@@ -316,18 +240,19 @@ def first_before_second(string, first, second):
             return False
     
     return True
+
+import numpy as np
     
-# print(first_before_second("a rabbit jumps joyfully", "a", "j")) # => True, all instances of "a" happen before the first instance of "j".
-# print(first_before_second("knaves knew about waterfalls", "k", "w"))
-# print(first_before_second("maria makes money", "m", "o"))
-# print(first_before_second("the hostess made pecan pie", "h", "p"))
-# print(first_before_second("barry the butterfly flew away", "b", "f"))
-# print(first_before_second("moody muggles", "m", "g"))
-# print(first_before_second("happy birthday", "a", "y")) # => False, the "y" in "happy" comes before the "a" in "birthday".
-# print(first_before_second("precarious kangaroos", "k", "a"))
-# print(first_before_second("maria makes money", "m", "i"))
-# print(first_before_second("taken by the beautiful sunrise", "u", "s"))
-# print(first_before_second("sharp cheddar biscuit", "t", "s"))
-# print(first_before_second("moody muggles", "m", "o"))
-# print(first_before_second("asd", "d", "a"))
+# Builds then returns a dictionary of the count of all datatypes of any number of arguments
+def count_datatypes(*args):
+    datatype_count = {}
     
+    for item in args:
+        if type(item) in datatype_count.keys():
+            datatype_count[type(item)] += 1
+        else:
+            datatype_count[type(item)] = 1
+            
+    return datatype_count
+
+print(count_datatypes(2, 3, 4.5, 6, "asds", [1,2,3], np.array([1,2,3]), {"a": 2}, (123,24)))

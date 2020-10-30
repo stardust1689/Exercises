@@ -1,16 +1,10 @@
 // Checks whether a given array contains the number 7.
-function sevenBoom(array) {
-    if (array.includes(7)) {
-        return "Boom!"
+function sevenBoom(arr) {
+    if (arr.includes(7)) {
+        return "Boom!";
     }
-    return "there is no 7 in the array"
+    return "there is no 7 in the array";
 }
-
-// function foo() {
-//     for (var i = 0; i < arguments.length; i++) {
-//         console.log(arguments[i]);
-//     }
-// }
 
 // Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item. This is actually just the product of the numbers of items per each set; i.e. the product of the arguments.
 function combinations() {
@@ -44,12 +38,12 @@ function numInStr(arrayOfStrings) {
 };
 
 // Checks whether a number is "oddish" or "evenish." A number is oddish or evenish depending on whether the sum of the digits is odd or even.
-function oddishOrEvenish(number) {
-    if (number % 2 === 0) {
+function oddishOrEvenish(num) {
+    if (numb % 2 === 0) {
         return "Evenish";
     }
 
-    let numAsArray = String(number).split("");
+    let numAsArray = String(numr).split("");
     digits = numAsArray.filter(digitCheck => digitCheck !== ".");
     oddDigits = digits.filter(digit => digit % 2 !== 0);
     if (oddDigits.length % 2 !== 0) {
@@ -182,4 +176,22 @@ function characterMapping(str) {
     });
 	
 	return map;
+}
+
+// Returns a boolen telling whether of not an array as more unique positive values than unique negative values
+function isPositiveDominant(arr) {
+    let uniqueValues = [...(new Set(arr))];
+    let positive = 0;
+    let negative = 0;
+
+    for (value of uniqueValues) {
+        if (value > 0) {
+            positive++;
+        }
+        else if (value < 0) {
+            negative++;
+        }
+    }
+
+    return positive > negative;
 }
