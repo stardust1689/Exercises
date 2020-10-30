@@ -195,3 +195,33 @@ function isPositiveDominant(arr) {
 
     return positive > negative;
 }
+
+function isZygodrome(num) {
+    let numAsArray = num.toString().split('');
+    // console.log(numAsArray);
+    // console.log(numAsArray.slice(1, numAsArray.length - 1))
+    // if (numAsArray.length < 2) {
+    //     console.log("first");
+    //     return false;
+    // }
+    // else if (numAsArray.length === 2) {
+    //     console.log("second");
+    //     if (numAsArray[0] === numAsArray[1]) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+    // console.log("third");
+    let result = numAsArray.every((num, index) => {
+        console.log(num);
+        console.log(numAsArray[index - 1]);
+        console.log(numAsArray[index + 1]);
+        if (index === 0) {
+            return num === numAsArray[index + 1];
+        }
+        else {
+            return !(num !== numAsArray[index-1] && num !== numAsArray[index+1]);
+        }
+    })
+    return result;
+}
