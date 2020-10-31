@@ -199,6 +199,7 @@ function isPositiveDominant(arr) {
 // Returns whether a number is Zygodrome, or a number that can be partitioned into clusters of repeating digits (so cannot be a single digit number). So, 33 is Zygodrome, but 332, 1, and 1001 are not.
 function isZygodrome(num) {
     let numAsArray = num.toString().split('');
+
     let result = numAsArray.every((num, index) => {
         if (index === 0) {
             return num === numAsArray[index + 1];
@@ -207,5 +208,19 @@ function isZygodrome(num) {
             return !(num !== numAsArray[index-1] && num !== numAsArray[index+1]);
         }
     })
+
     return result;
+}
+
+// Checks a string whether there are three question marks between two single-digit numbers that add to 10
+function QuestionsMarks(str) {   
+  let parts = str.split('???');
+
+  for (let i = 0; i < parts.length - 1; i++) {
+    if (Number(parts[i][parts[i].length - 1]) + Number(parts[i + 1][0]) === 10) {
+      return true;
+    }
+  }
+
+  return false; 
 }
