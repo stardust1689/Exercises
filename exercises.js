@@ -224,3 +224,42 @@ function QuestionsMarks(str) {
 
   return false; 
 }
+
+//  Calculates whether a line intersects a point on a point, where the line is given as a string representing a slope-intercept equation "y = mx + b", where m is the slope and b is the y intercept
+function willHit(equation, position) {
+    equation = equation.replaceAll(" ", "");
+    let equationToSplit = [];
+    for (item of equation) {
+        if (item === '+' || item === '-') {
+            equationToSplit += ('!' + item);
+        }
+        else {
+            equationToSplit += item;
+        }
+    }
+
+    let equationArray = equationToSplit.split(/\!|y\=/g);
+    equationArray = equationArray.filter(item => item !== "");
+
+    let slope = 0;
+    let yIntercept = 0;
+    if (equationArray.length === 2) {
+        slope = Number(equationArray[0].slice(0 ,equationArray[0].length - 1));
+        yIntercept = Number(equationArray[1]);
+    }
+    else if (equationArray.length === 1 && equationArray[0] !== '0') {
+        if (equationArray[0].indexOf("x") === -1) {
+            yIntercept = Number(equationArray[0]);
+        }
+        else {
+            slope = Number(equationArray[0].slice(0 ,equationArray[0].length - 1));
+        }
+    }
+
+    let [xChange, yChange] = [position[0], position[1] - yIntercept];
+
+    if ((yChange / xChange) === slope) {
+        return true;
+    }
+    return false;
+}
