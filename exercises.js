@@ -263,3 +263,14 @@ function willHit(equation, position) {
     }
     return false;
 }
+
+// Returns the number of "boomerangs" found in the array. A boomerang is defined as an array or sub-array of 3 elements which reads the same forwards and backwards, and whose elements are not identical.
+function countBoomerangs(arr) {
+    let result = 0;
+    for (let i = 0; i < arr.length - 2; i++) {
+        if ((arr[i] === arr[i+2]) && (arr[i] !== arr[i+1])) {
+            result++;
+        }
+    }
+    return result;
+}
