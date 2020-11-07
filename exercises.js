@@ -274,3 +274,10 @@ function countBoomerangs(arr) {
     }
     return result;
 }
+
+// Takes 2 arrays and returns an array showing the common elements betwwen them
+function commonElements(arr1, arr2) {
+    let arr1set = [...new Set(arr1)];
+    let arr2set = [...new Set(arr2)];
+    return arr1set.filter(item => arr2set.includes(item));
+}
