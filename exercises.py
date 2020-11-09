@@ -255,4 +255,14 @@ def count_datatypes(*args):
             
     return datatype_count
 
-print(count_datatypes(2, 3, 4.5, 6, "asds", [1,2,3], np.array([1,2,3]), {"a": 2}, (123,24)))
+# print(count_datatypes(2, 3, 4.5, 6, "asds", [1,2,3], np.array([1,2,3]), {"a": 2}, (123,24)))
+
+def is_disarium(num):
+    total = 0
+    power = 1
+    for n in str(num):
+        total += int(n)**power
+        power += 1
+    return total == num
+        
+print(is_disarium(518))
