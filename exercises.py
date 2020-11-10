@@ -257,6 +257,8 @@ def count_datatypes(*args):
 
 # print(count_datatypes(2, 3, 4.5, 6, "asds", [1,2,3], np.array([1,2,3]), {"a": 2}, (123,24)))
 
+# Checks is a number is "Disarium". A number is Disarium if the sum of the digits raised to their respective postions equals the number itself.
+# For example, 135 is Disarium because 1^1 + 2^2 + 5^3 = 135.
 def is_disarium(num):
     total = 0
     power = 1
@@ -265,4 +267,22 @@ def is_disarium(num):
         power += 1
     return total == num
         
-print(is_disarium(518))
+# print(is_disarium(518))
+
+primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+# Uses a binary search algorithm to check if a number is within a list of sorted prime numbers
+def binary_search_is_prime(primes, num):
+
+    while len(primes) > 1:
+        if num < primes[int(len(primes) / 2)]:
+            primes = primes[0: int(len(primes) / 2)]
+        else:
+            primes = primes[int(len(primes) / 2):]
+        
+    if len(primes) == 1 and num in primes:
+        return "yes"
+
+    return "no"
+
+# print(binary_search_is_prime(primes, 11))
