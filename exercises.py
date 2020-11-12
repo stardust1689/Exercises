@@ -286,3 +286,15 @@ def binary_search_is_prime(primes, num):
     return "no"
 
 # print(binary_search_is_prime(primes, 11))
+
+def rearranged_difference(num):
+    numArray = [digit for digit in str(num)]
+    minimum, maximum = numArray, numArray[:]
+    minimum.sort(), maximum.sort()
+    maximum.reverse()
+    minimum = int(''.join(minimum))
+    maximum = int(''.join(maximum))
+    return maximum - minimum
+    
+print(rearranged_difference(2301))
+    
