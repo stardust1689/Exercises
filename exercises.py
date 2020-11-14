@@ -172,11 +172,8 @@ def consecutive_combo(*args):
     for num in range_to_meet:
         if num not in combo:
             return False
-        combo.pop(combo.index(num))
-        
-    if len(combo) == 0:
-        return True
-    return False
+    
+    return True
 
 # takes an list and returns the majority voite from that list, or the item whose count is greater than half the list's length
 def majority_vote(lst):
@@ -186,7 +183,7 @@ def majority_vote(lst):
 
 # Checks whether given number is prime
 def is_prime(number):
-    if number <= 1:
+    if number <= 3:
         return False
     try:
         range(2, number)
@@ -296,5 +293,24 @@ def rearranged_difference(num):
     maximum = int(''.join(maximum))
     return maximum - minimum
     
-print(rearranged_difference(2301))
+# print(rearranged_difference(2301))
+
+# Checks an exam score whether it meets the requirement to pass an exam. Both arguments are strings.
+def grade_precentage(score, required):
+    digits = [digit for digit in string.digits]
     
+    def is_digit(char):
+        return char in digits
+    
+    score = int(''.join(list(filter(is_digit, score))))
+    required = int(''.join(list(filter(is_digit, required))))
+    
+    if score >= required:
+        pass_fail = 'PASSED'
+    else:
+        pass_fail = 'FAILED'
+        
+    return f'You {pass_fail} the exam'
+    
+# print(grade_precentage("80%", "75%"))
+            
