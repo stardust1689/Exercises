@@ -281,3 +281,7 @@ function commonElements(arr1, arr2) {
     let arr2set = [...new Set(arr2)];
     return arr1set.filter(item => arr2set.includes(item));
 }
+
+// Returns the number of days between two date objects, as a rounded integer
+const getDays = (date1, date2) => Math.round(Math.abs(date1 - date2) / 86400000)
+
