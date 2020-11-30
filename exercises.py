@@ -313,4 +313,22 @@ def grade_precentage(score, required):
     return f'You {pass_fail} the exam'
     
 # print(grade_precentage("80%", "75%"))
-            
+
+# "skyline" is a 2D list with 1's being building space and 0's being empty space. Returns the height of the tallest skyscraper(s).
+def tallest_skyscraper(skyline):
+    heights = []
+    for building in range(len(skyline[0])):
+        height = 0
+        for space in range(len(skyline)):
+            if skyline[space][building] == 1:
+                height += 1
+        heights.append(height)
+    return max(heights)
+
+# print(tallest_skyscraper([
+#   [0, 0, 0, 0],
+#   [0, 1, 0, 0],
+#   [0, 1, 1, 0],
+#   [1, 1, 1, 1]
+# ]))
+# Returns "3" as the building / column second-furthest left has 3 1's, making it the tallest.
