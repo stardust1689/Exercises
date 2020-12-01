@@ -332,3 +332,18 @@ def tallest_skyscraper(skyline):
 #   [1, 1, 1, 1]
 # ]))
 # Returns "3" as the building / column second-furthest left has 3 1's, making it the tallest.
+
+# "Adds" two numbers incorrectly, instead using the method shown on https://en.meming.world/wiki/Girl_at_Whiteboard_Adding
+def meme_sum(num1, num2):
+    total = []
+    lst1 = list(str(num1))
+    lst2 = list(str(num2))
+    
+    while len(lst1) != len(lst2):
+        lst2.insert(0,0) if len(lst1) > len(lst2) else lst1.insert(0,0)
+            
+    for digit in range(len(lst1)):
+        total.append( str(int(lst1[digit]) + int(lst2[digit])) )
+        
+    return int(''.join(total))
+ 
