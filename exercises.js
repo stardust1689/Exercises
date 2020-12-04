@@ -39,11 +39,7 @@ function numInStr(arrayOfStrings) {
 
 // Checks whether a number is "oddish" or "evenish." A number is oddish or evenish depending on whether the sum of the digits is odd or even.
 function oddishOrEvenish(num) {
-    if (numb % 2 === 0) {
-        return "Evenish";
-    }
-
-    let numAsArray = String(numr).split("");
+    let numAsArray = String(num).split("");
     digits = numAsArray.filter(digitCheck => digitCheck !== ".");
     oddDigits = digits.filter(digit => digit % 2 !== 0);
     if (oddDigits.length % 2 !== 0) {
