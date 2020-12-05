@@ -281,9 +281,39 @@ function commonElements(arr1, arr2) {
 // Returns the number of days between two date objects, as a rounded integer
 const getDays = (date1, date2) => Math.round(Math.abs(date1 - date2) / 86400000)
 
-// Returns "Boom!" if the digit 7 appears in the array
-const sevenBoom = arr => {
-    let sevenCheck = arr.join().includes('7');
-    return sevenCheck ? 'Boom!' : 'there is no 7 in the array'
+function nextLetters(str) {
+    let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    let strCapRev = str.toUpperCase().split('').reverse().join('');
+    let strCap = str.toUpperCase();
+    result = '';
+    
+    function next(ind) {
+        if (ind !== strCapRev.length - 1) {
+            if (strCapRev[ind] === 'Z') {
+                result += letters[ letters.indexOf(strCapRev[ind + 1]) + 1];
+                result += 'A';
+            } else {
+                result += letters[ letters.indexOf(strCapRev[ind]) + 1]
+            }
+        } else {
+            if (strCapRev[ind] === 'Z') {
+                result += 'AA';
+            } else {
+                result += letters[ letters.indexOf(strCapRev[ind]) + 1]
+            }
+        }
+        
+    }
+
+    for (let ind = 0; ind <= strCapRev.length; ind++) {
+        if (strCapRev[ind] === 'Z') {
+            next(ind);
+        } else {
+            result += letters[ letters.indexOf(strCapRev[ind]) + 1]
+        }
+        str.pop();
+    }
+
+    return result;
 }
 
