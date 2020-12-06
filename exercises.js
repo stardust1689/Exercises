@@ -281,39 +281,30 @@ function commonElements(arr1, arr2) {
 // Returns the number of days between two date objects, as a rounded integer
 const getDays = (date1, date2) => Math.round(Math.abs(date1 - date2) / 86400000)
 
+// Returns the string which falls next in the alphabetically in a string in a fashion similar to a number in base-27
 function nextLetters(str) {
+    if (str === '') return 'A';
     let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    let strCapRev = str.toUpperCase().split('').reverse().join('');
-    let strCap = str.toUpperCase();
-    result = '';
+    let strArrCapRev = str.toUpperCase().split('').reverse();
+    let resultRevArr = [];
     
-    function next(ind) {
-        if (ind !== strCapRev.length - 1) {
-            if (strCapRev[ind] === 'Z') {
-                result += letters[ letters.indexOf(strCapRev[ind + 1]) + 1];
-                result += 'A';
-            } else {
-                result += letters[ letters.indexOf(strCapRev[ind]) + 1]
+    while (strArrCapRev.length > 0) {
+        if (strArrCapRev[0] === 'Z') {
+            resultRevArr.push('A');
+            if (strArrCapRev[1] !== 'Z') {
+                resultRevArr.push(letters[letters.indexOf(strArrCapRev[1]) + 1]);
+                resultRevArr.push(strArrCapRev.slice(2).reverse().join(''));
+                break
             }
+            strArrCapRev.shift();
         } else {
-            if (strCapRev[ind] === 'Z') {
-                result += 'AA';
-            } else {
-                result += letters[ letters.indexOf(strCapRev[ind]) + 1]
-            }
+            resultRevArr.push(letters[letters.indexOf(strArrCapRev[0]) + 1]);
+            resultRevArr.push(strArrCapRev.slice(1).reverse().join(''));
+            break
         }
-        
     }
-
-    for (let ind = 0; ind <= strCapRev.length; ind++) {
-        if (strCapRev[ind] === 'Z') {
-            next(ind);
-        } else {
-            result += letters[ letters.indexOf(strCapRev[ind]) + 1]
-        }
-        str.pop();
-    }
-
+    
+    let result = resultRevArr.reverse().join('');
     return result;
 }
 
