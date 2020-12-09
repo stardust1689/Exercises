@@ -148,14 +148,11 @@ function fibo(num) {
     return fibo(num - 2) + fibo(num - 1);
 }
 
-// Returns the total number of non-nested items in a nested array (empty arrays within the initial array count as 1)
+// Returns the total number of non-nested items in a nested array (Empty arrays within the initial array do NOT count.)
 function getLength(arr) {
     let result = arr.length;
     for (let item of arr) {
         if (Array.isArray(item)) {
-            if (item.length === 0) {
-                result++;
-            }
             result += (getLength(item) - 1);
         }
     }
@@ -308,3 +305,29 @@ function nextLetters(str) {
     return result;
 }
 
+// Sorts an array of numbers by the number of "holes" within each number. For reference, the numbers 0, 4, 6, and 9 have 1 hole, 8 has 2 holes, and the rest have 0 holes.
+function holeySort(arr) {
+    return arr.sort(function(num1, num2) {
+        const num1Arr = num1.toString().split('');
+        const num2Arr = num2.toString().split('');
+        const oneHole = digit => (digit === '0' || digit === '4' || digit === '6' || digit === '9')
+        const twoHole = digit => (digit === '8')
+        const num1holes = num1Arr.filter(oneHole).length + 2*num1Arr.filter(twoHole).length
+        const num2holes = num2Arr.filter(oneHole).length + 2*num2Arr.filter(twoHole).length
+        return num1holes - num2holes;
+    })
+}
+
+// An alternative to "holeySort()"
+function holeySort2(arr) {
+    return arr.sort(function(num1, num2) {
+        const hasHoles = digit => '04689'.includes(digit);
+        const num1HoleyArr = num1.toString().split('').filter(hasHoles);
+        const num2HoleyArr = num2.toString().split('').filter(hasHoles);
+        const holeNumbers = { '0': 1, '4': 1, '6': 1,  '8': 2, '9': 1 };
+        const holeCount = (total, digit) => total + holeNumbers[digit];
+        const num1holes = num1HoleyArr.reduce(holeCount, 0);
+        const num2holes = num2HoleyArr.reduce(holeCount, 0);
+        return num1holes - num2holes;
+    })
+}
