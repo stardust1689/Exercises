@@ -6,35 +6,21 @@ function sevenBoom(arr) {
     return "there is no 7 in the array";
 }
 
-// Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item. This is actually just the product of the numbers of items per each set; i.e. the product of the arguments.
+// Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item.
 function combinations() {
-    let args = Array.from(arguments);
-    let total = 1;
-    for (let ind = 0; ind < args.length; ind++) {
-        total *= args[ind];
-    }
-    return total;
+    return Array.from(arguments).reduce((total, item) => item !== 0 ? total*item : total);
 }
 
 // Takes an array of strings and returns only the strings that have numbers in them
 function numInStr(arrayOfStrings) {
     let numbers = "1234567890";
-    function isNumber(char) {
-        for (let i = 0; i < numbers.length; i++) {
-            if (char === numbers[i]) {
-                return true;
-            };
-        };
-    };
+    const hasNum = function(str) {
+        for (char of str) {
+            if (numbers.includes(char)) {return true;}
+        }
+    }
 
-    let result = [];
-    for (let i = 0; i < arrayOfStrings.length; i++) {
-        let iArray = arrayOfStrings[i].split("");
-        if (iArray.filter(isNumber).length > 0) {
-            result.push(arrayOfStrings[i]);
-        };
-    };
-    return result;
+    return arrayOfStrings.filter(hasNum);
 };
 
 // Checks whether a number is "oddish" or "evenish." A number is oddish or evenish depending on whether the sum of the digits is odd or even.
@@ -50,15 +36,14 @@ function oddishOrEvenish(num) {
 
 // Checks whether there is at least one instance in a string where both the last letter of one word and the first of the adjacent word are vowels
 function hasVowelLinks(str) {
-    let wordLinks = [];
-    for (let i = 0; i < str.length - 2; i++) {
-        if (str[i+1] === " ") {
-            wordLinks.push(str.slice(i,i+3));
+    let words = str.split(' ');
+    let vowels = "aeiouAEIOU";
+    for (i = 0; i < words.length - 1; i++) {
+        if ( (vowels.includes(words[i][words[i].length - 1]) && (vowels.includes(words[i + 1][0]) ) ) ) {
+            return true
         }
     }
-    let vowels = "aeiouAEIOU";
-    let vowelLinks = wordLinks.filter(wordLink => (vowels.includes(wordLink[0]) && (vowels.includes(wordLink[2]))));
-    return vowelLinks.length > 0;
+    return false
 }
 
 // Shows the "leaders" in an array of numbers, or the numbers that are larger than all of the following numbers in the array.
