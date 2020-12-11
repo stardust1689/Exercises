@@ -347,12 +347,10 @@ def meme_sum(num1, num2):
         
     return int(''.join(total))
 
-# 
+# Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item.
 import functools
 
 def combinations(*args):
     nonzero_args = filter(lambda num: num != 0, list(args))
-    
     return functools.reduce(lambda total, acc : total*acc, nonzero_args)
-    # return functools.reduce(lambda total, acc : total*acc if total != 0 and acc != 0, list(args))
     
