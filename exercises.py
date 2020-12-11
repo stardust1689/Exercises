@@ -346,4 +346,13 @@ def meme_sum(num1, num2):
         total.append( str(int(lst1[digit]) + int(lst2[digit])) )
         
     return int(''.join(total))
- 
+
+# 
+import functools
+
+def combinations(*args):
+    nonzero_args = filter(lambda num: num != 0, list(args))
+    
+    return functools.reduce(lambda total, acc : total*acc, nonzero_args)
+    # return functools.reduce(lambda total, acc : total*acc if total != 0 and acc != 0, list(args))
+    
