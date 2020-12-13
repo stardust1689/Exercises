@@ -126,10 +126,9 @@ char_to_dots = {
 }
 
 def encode_morse(message_string):
-    morse = ""
-    for char in message_string:
-        morse += (char_to_dots[char.capitalize()] + " ")
-    return morse
+	morse_trans = message_string.maketrans(char_to_dots) 
+	morse = message_string.translate(morse_trans)
+	return morse
 
 import datetime
 
@@ -141,17 +140,12 @@ def has_friday_13(month, year):
     return False
 
 # Encodes a string by reversing it, replacing all vowels with a certain number, then adding "aca" at the end.
-def karaca(stringer):
-    if stringer.lower() != stringer:
-        return "All letters MUST be lowercase, silly."
-    encrypting = stringer[::-1]
+def karaca(string):
+    encrypting = string.lower()[::-1]
     karaca_dict = {"a": "0", "e": "1", "i": "2", "o": "2", "u": "3"}
-    for key in karaca_dict:
-        encrypting = encrypting.replace(key, karaca_dict[key])
-    encrypting += "aca"
-    return encrypting
-        
-# print(karaca("courage the cowardly dog"))
+    table = string.maketrans(karaca_dict)
+    encrypting = encrypting.translate(table)
+    return encrypting + 'aca'
 
 import math
 
@@ -212,6 +206,14 @@ def factorial(number):
         for number in factors:
             result = result*number
         return result
+    
+def factorial_recursion(number):
+    result = number
+    if number == 1 or number == 0:
+        return 1
+    else:
+        result *= factorial(number - 1)
+    return result
 
 # "Kempner" function; returns the smallest integer greater than 0 whose factorial is divisible by the input. Returns 0 if input is not an integer or is <= 0.
 def kempner(number):
