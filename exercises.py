@@ -208,12 +208,7 @@ def factorial(number):
         return result
     
 def factorial_recursion(number):
-    result = number
-    if number == 1 or number == 0:
-        return 1
-    else:
-        result *= factorial(number - 1)
-    return result
+    return 1 if number < 2 else number*factorial_recursion(number-1)
 
 # "Kempner" function; returns the smallest integer greater than 0 whose factorial is divisible by the input. Returns 0 if input is not an integer or is <= 0.
 def kempner(number):
@@ -355,4 +350,10 @@ import functools
 def combinations(*args):
     nonzero_args = filter(lambda num: num != 0, list(args))
     return functools.reduce(lambda total, acc : total*acc, nonzero_args)
-    
+
+# Takes a list of lists and combines them into a single list
+def one_list(lst):
+	result = []
+	for item in lst:
+		result += item
+	return result
