@@ -357,3 +357,13 @@ def one_list(lst):
 	for item in lst:
 		result += item
 	return result
+
+def make_transpose(matrix):
+    result = []
+    for column in range(len(matrix[0])):
+        result.append([])
+        for row in range(len(matrix)):
+            result[column].append(matrix[row][column])
+    return result
+
+print(make_transpose([[1,2],[3,4],[5,6],[7,8],[9,10]]))
