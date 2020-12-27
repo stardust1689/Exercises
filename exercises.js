@@ -316,3 +316,21 @@ function holeySort2(arr) {
         return num1holes - num2holes;
     })
 }
+
+// Take a string and inserts a whitespace where there is camel casing, or a space between a lowercase and an uppercase letter
+function insertWhitespace(str) {
+    let regex = /[a-z][A-Z]/g;
+    let x = str.split(regex);
+    let y = str.match(regex);
+    result = '';
+    for (let i = 0; i <= x.length - 2; i++) {
+        result += x[i] + y[i][0] + ' ' + y[i][1];
+    }
+    result += x[x.length - 1];
+    return result;
+}
+
+// Another version of insertWhitespace()
+function insertWhitespace2(str) {
+    return str.replace(/([A-Z])([a-z])/g, '$1 $2')
+}
