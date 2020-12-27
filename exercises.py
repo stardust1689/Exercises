@@ -358,6 +358,7 @@ def one_list(lst):
 		result += item
 	return result
 
+# Takes a 2D matrix (written as a list of lists, each inner list being a row) and returns its TRANSPOSE (flipped over by its diagonal)
 def make_transpose(matrix):
     result = []
     for column in range(len(matrix[0])):
@@ -366,4 +367,10 @@ def make_transpose(matrix):
             result[column].append(matrix[row][column])
     return result
 
-print(make_transpose([[1,2],[3,4],[5,6],[7,8],[9,10]]))
+# Takes a list OR a string and returns the list or string containing only the elements whose position is a multiple of 'pos'
+def char_at_position(lst_str, pos):
+    valid_indices = list(range(pos, len(lst_str) + 1, pos))
+    result = [lst_str[num-1] for num in valid_indices]
+    if type(lst_str) == str:
+        return ''.join(result)
+    return result
