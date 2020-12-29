@@ -297,8 +297,8 @@ function holeySort(arr) {
         const num2Arr = num2.toString().split('');
         const oneHole = digit => (digit === '0' || digit === '4' || digit === '6' || digit === '9')
         const twoHole = digit => (digit === '8')
-        const num1holes = num1Arr.filter(oneHole).length + 2*num1Arr.filter(twoHole).length
-        const num2holes = num2Arr.filter(oneHole).length + 2*num2Arr.filter(twoHole).length
+        const num1holes = num1Arr.filter(oneHole).length + 2*num1Arr.filter(twoHole).length;
+        const num2holes = num2Arr.filter(oneHole).length + 2*num2Arr.filter(twoHole).length;
         return num1holes - num2holes;
     })
 }
@@ -332,7 +332,7 @@ function insertWhitespace(str) {
 
 // Another version of insertWhitespace()
 function insertWhitespace2(str) {
-    return str.replace(/([A-Z])([a-z])/g, '$1 $2')
+    return str.replace(/([A-Z])([a-z])/g, '$1 $2');
 }
 
 // Returns the least common multiple of two numbers
@@ -343,4 +343,11 @@ function lcm(num1, num2) {
         result += addon;
     }
     return result;
+}
+
+// Returns a list of all missing letters in a string
+function missingLetters(str) {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    let missing = alphabet.split('').filter(letter => str.indexOf(letter) === -1);
+    return missing.length === 0 ? 'No Missing Letter' : missing;
 }
