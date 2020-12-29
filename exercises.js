@@ -334,3 +334,13 @@ function insertWhitespace(str) {
 function insertWhitespace2(str) {
     return str.replace(/([A-Z])([a-z])/g, '$1 $2')
 }
+
+// Returns the least common multiple of two numbers
+function lcm(num1, num2) {
+    let addon = num1;
+    let result = num1;
+    while (result % num2 !== 0) {
+        result += addon;
+    }
+    return result;
+}
