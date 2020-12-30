@@ -351,3 +351,13 @@ function missingLetters(str) {
     let missing = alphabet.split('').filter(letter => str.indexOf(letter) === -1);
     return missing.length === 0 ? 'No Missing Letter' : missing;
 }
+
+// Returns whether arr1 is an "anti-array" of arr2. arr1 should have only two values. If those two values are reversed, arr1 is an anti-array of arr2 if the reversed array equals arr2.
+function isAntiArray(arr1, arr2) {
+    let [val1, val2] = [...new Set(arr1)];
+    let antiArr1 = [];
+    for (let i = 0; i < arr1.length; i++) {
+        arr1[i] === val1 ? antiArr1.push(val2) : antiArr1.push(val1);
+    }
+    return antiArr1.every((item, ind) => item === arr2[ind]);
+}
