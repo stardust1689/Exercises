@@ -361,3 +361,14 @@ function isAntiArray(arr1, arr2) {
     }
     return antiArr1.every((item, ind) => item === arr2[ind]);
 }
+
+// Takes an array of strings with the word "east" in any format and changes them into the word "west" in the same format.
+function wrongWay(arr) {
+    const eastToWest = str => {
+        let stage1 = str.replace('e', 'w');
+        let stage2 = stage1.replace('E', 'W');
+        let stage3 = stage2.replace('a', 'e');
+        return stage3.replace('A', 'E')
+    }
+    return arr.map(str => eastToWest(str));
+}
