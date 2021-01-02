@@ -368,9 +368,16 @@ def make_transpose(matrix):
     return result
 
 # Takes a list OR a string and returns the list or string containing only the elements whose position is a multiple of 'pos'
-def char_at_position(lst_str, pos):
+def chars_at_position(lst_str, pos):
     valid_indices = list(range(pos, len(lst_str) + 1, pos))
     result = [lst_str[num-1] for num in valid_indices]
     if type(lst_str) == str:
         return ''.join(result)
     return result
+
+# 
+def find_fulcrum(lst):
+    for i in range(1, len(lst) - 1):
+        if sum(lst[:i]) == sum(lst[i+1:]):
+            return lst[i]
+    return -1
