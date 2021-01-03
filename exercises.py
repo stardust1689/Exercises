@@ -375,9 +375,18 @@ def chars_at_position(lst_str, pos):
         return ''.join(result)
     return result
 
-# 
+# Takes a list and returns the value whose sum of the values on one side equals that of the other, or its "fulcrum." Example: the fulcrum of the list [5,2,1,4] is 2, because 5 (the sum of values on its left) = 1 + 4 (the sum on its right). 
 def find_fulcrum(lst):
     for i in range(1, len(lst) - 1):
         if sum(lst[:i]) == sum(lst[i+1:]):
             return lst[i]
     return -1
+
+# Returns a list containing a "square" box with each side having 'side' (an integer) * the string '#'.
+def make_box(side):
+    result = []
+    result.append('#'*side)
+    for num in range(1, side - 1):
+        result.append('#' + ' '*(side-2) + '#')
+    result.append('#'*side)
+    return result
