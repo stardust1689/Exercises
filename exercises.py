@@ -390,3 +390,14 @@ def make_box(side):
         result.append('#' + ' '*(side-2) + '#')
     result.append('#'*side)
     return result
+
+# Searches for a word in a string and returns the entire sentence containing the word (not case-sensitive)
+def sentence_searcher(txt, word):
+    result = ''
+    for char in txt:
+        result += char
+        if char == '.':
+            if word.lower() in result.lower():
+                return result.strip()
+            result = ''
+    return result
