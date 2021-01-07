@@ -401,3 +401,10 @@ def sentence_searcher(txt, word):
                 return result.strip()
             result = ''
     return result
+
+# In a list, the interval is the difference between the maximum and the minimum. Returns ":)" if the interval is in the list, ":(" if not, and "/" if the argument is not a list.
+def face_interval(lst):
+    if type(lst) != list:
+        return ':/'
+    interval = max(lst) - min(lst)
+    return ':)' if interval in lst else ':('
