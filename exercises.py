@@ -408,3 +408,28 @@ def face_interval(lst):
         return ':/'
     interval = max(lst) - min(lst)
     return ':)' if interval in lst else ':('
+
+# Takes a string and returns whether all words have no duplicate letters
+def no_duplicate_letters(txt):
+    txt_lst = txt.lower().split()
+    
+    def duplicate_letters(next_string):
+        for letter in next_string:
+            if next_string.count(letter) > 1:
+                return True
+        return False
+    
+    return len(list(filter(duplicate_letters, txt_lst))) == 0
+
+# More efficient version of no_duplicate_letters()
+def no_duplicate_letters2(txt):
+    txt_lst = txt.lower().split()
+    
+    for next_string in txt_lst:
+        for letter in next_string:
+            if next_string.count(letter) > 1:
+                return False
+            
+    return True
+
+        
