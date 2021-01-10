@@ -372,3 +372,12 @@ function wrongWay(arr) {
     }
     return arr.map(str => eastToWest(str));
 }
+
+//
+function toArray(obj) {
+    result = [];
+    for (key in obj) {
+        result.push([key, obj[key]]);
+    }
+    return result;
+}
