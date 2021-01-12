@@ -373,11 +373,25 @@ function wrongWay(arr) {
     return arr.map(str => eastToWest(str));
 }
 
-//
+// Converts an object to an array of arrays, with each array within being a key / value pair
 function toArray(obj) {
-    result = [];
+    let result = [];
     for (key in obj) {
         result.push([key, obj[key]]);
     }
+    return result;
+}
+
+// Takes an array of numbers and sorts them in ascending order
+function sortArray(arrOfNums) {
+    let result = [];
+    let arrLength = arrOfNums.length;
+
+    for (let i = 0; i < arrLength; i++) {
+        let currentMin = Math.min(...arrOfNums);
+        result.push(currentMin);
+        arrOfNums.splice(arrOfNums.indexOf(currentMin), 1);
+    }
+
     return result;
 }
