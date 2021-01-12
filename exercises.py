@@ -1,3 +1,8 @@
+import math
+import string
+import datetime
+import functools
+
 # Returns a list of odd products from a list of numbers, using check_odd() callback to filter out any even numbers
 def check_odd(number):
   if number % 2 != 0:
@@ -31,8 +36,6 @@ def middle_chars(a_string):
     for num in range(start, end):
         result += a_string[num]
     return result
-
-import string
 
 # Remove all non-alphanumeric characters in a string (spaces allowed). Uses callback remove_bad() to filter out symbols.
 def remove_bad(char):
@@ -130,8 +133,6 @@ def encode_morse(message_string):
 	morse = message_string.translate(morse_trans)
 	return morse
 
-import datetime
-
 # Checks whether "Friday the 13th" occurs in a given month and year
 def has_friday_13(month, year):
     thirteenth = datetime.date(year, month, 13)
@@ -146,8 +147,6 @@ def karaca(string):
     table = string.maketrans(karaca_dict)
     encrypting = encrypting.translate(table)
     return encrypting + 'aca'
-
-import math
 
 # Returns the number of given integer powers (n) between one number and another (a and b), inclusive
 def power_ranger(n,a,b):
@@ -234,8 +233,6 @@ def first_before_second(string, first, second):
             return False
     
     return True
-
-import numpy as np
     
 # Builds then returns a dictionary of the count of all datatypes of any number of arguments
 def count_datatypes(*args):
@@ -345,7 +342,6 @@ def meme_sum(num1, num2):
     return int(''.join(total))
 
 # Takes a variable number of integers, each representing the number of items in a set, and returns the number of combinations that can be made by taking one from each item.
-import functools
 
 def combinations(*args):
     nonzero_args = filter(lambda num: num != 0, list(args))
@@ -413,13 +409,13 @@ def face_interval(lst):
 def no_duplicate_letters(txt):
     txt_lst = txt.lower().split()
     
-    def duplicate_letters(next_string):
+    def has_duplicate(next_string):
         for letter in next_string:
             if next_string.count(letter) > 1:
                 return True
         return False
     
-    return len(list(filter(duplicate_letters, txt_lst))) == 0
+    return len(list(filter(has_duplicate, txt_lst))) == 0
 
 # More efficient version of no_duplicate_letters()
 def no_duplicate_letters2(txt):
@@ -432,4 +428,9 @@ def no_duplicate_letters2(txt):
             
     return True
 
-        
+# Takes the three poins of a triangle in Cartesian coordinates and returns the perimeter
+def triangle_perimeter(p1, p2 ,p3):
+    side1 = math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
+    side2 = math.sqrt((p2[0] - p3[0])**2 + (p2[1] - p3[1])**2)
+    side3 = math.sqrt((p3[0] - p1[0])**2 + (p3[1] - p1[1])**2)
+    return round(side1 + side2 + side3, 2)
