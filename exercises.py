@@ -434,3 +434,21 @@ def triangle_perimeter(p1, p2 ,p3):
     side2 = math.sqrt((p2[0] - p3[0])**2 + (p2[1] - p3[1])**2)
     side3 = math.sqrt((p3[0] - p1[0])**2 + (p3[1] - p1[1])**2)
     return round(side1 + side2 + side3, 2)
+
+# Takes digit "num" returns the sum of the combined digits of the first and last digit of num, the second and second-last digit of num, until the digits reach the center of num.
+# Example: closing_in_sum(5645) => 119, becuase 55 + 64 = 119.
+# If the length of num is odd, the center digit is added alone. Ex: closing_in_sum(343) => 33 + 4 = 37.
+def closing_in_sum(num):
+    digits_num = [digit for digit in str(num)]
+    total = 0
+    if len(digits_num) % 2 != 0:
+        middle = int((len(digits_num) / 2) - 0.5)
+        total += int(digits_num[middle])
+        digits_num.pop(middle)
+
+    while len(digits_num) > 0:
+        total += int(digits_num[0] + digits_num[-1])
+        digits_num.pop(0)
+        digits_num.pop(-1)
+
+    return total
