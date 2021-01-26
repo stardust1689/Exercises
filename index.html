@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Page</title>
+</head>
+
+<body>
+    <form action="https://www.youtube.com/playlist">
+        <!-- <label for="g">Must match what should be in url</label> -->
+        <input type="text" name="list" id="yt">
+        <button>Search Google</button>
+    </form>
+
+    <form action="">
+        <label for="fname">First Name:</label>
+        <!-- for => id -->
+        <input type="text" name="fname" id="fname" placeholder="first name" required>
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="lname" placeholder="last name" required>
+        <br>
+
+        <label>Select a Race:</label>
+        <input type="radio" name="race" value="fun" id="fun" required>
+        <label for="fun">Fun Run 5K</label>
+        <input type="radio" name="race" value="half" id="half" required>
+        <label for="half">Half Marathon</label>
+        <input type="radio" name="race" value="full" id="full" required>
+        <label for="full">Full Marathon</label>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        <label for="pw">Password:</label>
+        <input type="password" name="password" id="pw" required minlength=5 maxlength=20>
+        <br>
+
+        <label for="age">Select Age Group:</label>
+        <select id="age" name="age">
+            <option value="underEighteen">Under 18</option>
+            <option value="eighteenThirty">18-30</option>
+            <option value="thirtyFifty">30-50</option>
+            <option value="fiftyPlus">50+</option>
+        </select>
+
+        <button>Register!</button>
+    </form>
+
+    <script src="exercises.js"></script>
+</body>
+
+</html>

@@ -395,3 +395,18 @@ function sortArray(arrOfNums) {
 
     return result;
 }
+
+// Takes an array and returns the number of "truthy" values. A truthy value includes the boolean "true", a nonzero number, a nonempty string, array, object, etc. "null", "NaN", and "undefined" are "falsey" values.
+const countTrue = arr => arr.filter(val => val).length
+
+// Consider three cups facing down at positions "A", "B", and "C". A ball is hidden under the cup at B. This function take an array whose elements represent a swap of 2 cups between position; ex. "AB" is a swap between the two cups at A and B. The function returns the postion of the ball after all array swaps are completed.
+// NOTE: This works with any number of cups so long as one of them starts at "B". 
+function cupSwapping(arr) {
+    let ballPosition = 'B';
+    for (swap of arr) {
+        if (swap.includes(ballPosition)) {
+            ballPosition = swap.replace(ballPosition, '');
+        }
+    }
+    return ballPosition;
+}
