@@ -452,3 +452,39 @@ def closing_in_sum(num):
         digits_num.pop(-1)
 
     return total
+    
+# Simulates a "menu" represented as a given list with to first element "selected" by square brackets. Using move_forward() and move_backward() methods changes the selection respectively and the display() method shows the list with its selection bracketed.
+class Menu():
+    def __init__(self, lst, cursor=0):
+        self.list = lst
+        self.cursor = cursor
+
+    def move_forward(self):
+        self.cursor += 1
+        if self.cursor == len(self.list):
+            self.cursor = 0
+
+    def move_backward(self):
+        self.cursor -= 1
+        if self.cursor == -1:
+            self.cursor = len(self.list) - 1
+
+    def display(self):
+        self.list_display = self.list[:]
+        self.list_display[self.cursor] = [self.list_display[self.cursor]]
+        return self.list_display
+
+menu = Menu([1,2,3])
+
+print(menu.display())
+menu.move_to_right()
+print(menu.display())
+menu.move_to_right()
+print(menu.display())
+menu.move_to_right()
+print(menu.display())
+menu.move_to_left()
+print(menu.display())
+menu.move_to_left()
+print(menu.display())
+
