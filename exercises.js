@@ -410,3 +410,23 @@ function cupSwapping(arr) {
     }
     return ballPosition;
 }
+
+// Takes a duration of time (as "duration") and returns its duration adjusted for "speed"
+function playbackDuration(duration, speed) {
+    let durnArr = duration.split(":").map(num => Number(num))
+    let seconds = durnArr[2] + durnArr[1]*60 + durnArr[0]*3600;
+    let playbackSeconds = seconds / speed;
+    let playbackHours = Math.floor(playbackSeconds / 3600);
+    playbackSeconds -= playbackHours * 3600;
+    let playbackMinutes = Math.floor(playbackSeconds / 60);
+    playbackSeconds -= playbackMinutes * 60;
+    let playbackDurArr = [playbackHours, playbackMinutes, playbackSeconds].map(num => num.toString())
+    playbackDurArr = playbackDurArr.map(num => {
+        if (num[0] == "0") {
+            num = num.split("");
+            num.unshift("0");
+            return num.join("");
+        } else {return num;}
+    })
+    return playbackDurArr[0] + ":" + playbackDurArr[1] + ":" + playbackDurArr[2];
+}
