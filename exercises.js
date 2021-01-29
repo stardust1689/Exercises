@@ -430,3 +430,19 @@ function playbackDuration(duration, speed) {
     })
     return playbackDurArr[0] + ":" + playbackDurArr[1] + ":" + playbackDurArr[2];
 }
+
+// Consider an integer raised to a power (also an integer). If the product's last digits are the starting integer, it is considered "automorphic". This function evaluates the automorphism from the powers 2 to 10.
+function powerMorphic(num) {
+    let morphicTotal = 0;
+    let numString = num.toString();
+    for (let i = 2; i <= 10; i++) {
+        let powerString = (num**i).toString();
+        powerString.slice(-numString.length) === numString ? morphicTotal++ : morphicTotal;
+    }
+    return morphicTotal === 9 ? "Polymorphic"
+         : morphicTotal === 4 ? "Quadrimorphic"
+         : morphicTotal === 2 ? "Dimorphic"
+         : morphicTotal === 1 ? "Enamorphic"
+         : morphicTotal === 0 ? "Amorphic"
+         : "Automorphic";
+}
