@@ -477,3 +477,22 @@ class Menu():
 # Consider a circle and two squares. One square's sides touch the circle, and the other squares corners touch the circle. This evaluates the area difference of the squares.
 def square_areas_difference(radius):
     return 2 * radius**2
+
+# Simple calculator simulation which can add, subtract, multiply, and divide
+class Calculator():
+    def __init__(self):
+        pass
+
+    def add(self, num1, num2):
+        return num1 + num2
+
+    def subtract(self, num1, num2):
+        return num1 - num2
+    
+    def multiply(self, num1, num2):
+        return num1 * num2
+
+    def divide(self, num1, num2):
+        if num2 == 0:
+            return "approaches infinity"
+        return num1 / num2
