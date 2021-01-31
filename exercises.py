@@ -474,17 +474,6 @@ class Menu():
         self.list_display[self.cursor] = [self.list_display[self.cursor]]
         return self.list_display
 
-menu = Menu([1,2,3])
-
-print(menu.display())
-menu.move_to_right()
-print(menu.display())
-menu.move_to_right()
-print(menu.display())
-menu.move_to_right()
-print(menu.display())
-menu.move_to_left()
-print(menu.display())
-menu.move_to_left()
-print(menu.display())
-
+# Consider a circle and two squares. One square's sides touch the circle, and the other squares corners touch the circle. This evaluates the area difference of the squares.
+def square_areas_difference(radius):
+    return 2 * radius**2

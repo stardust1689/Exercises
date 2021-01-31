@@ -446,3 +446,13 @@ function powerMorphic(num) {
          : morphicTotal === 0 ? "Amorphic"
          : "Automorphic";
 }
+
+// Constructor function which allows for the creation of a circle
+class Circle {
+    constructor(radius) {
+        this.radius = radius;
+    }
+    getArea = () => Math.PI * this.radius**2;
+    getCircumfrence = () => 2 * Math.PI * this.radius;
+}
+
