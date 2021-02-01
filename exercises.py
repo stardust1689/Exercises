@@ -383,7 +383,7 @@ def make_box(side):
     result = []
     result.append('#'*side)
     for num in range(1, side - 1):
-        result.append('#' + ' '*(side-2) + '#')
+        result.append('#' + ' ' * (side-2) + '#')
     result.append('#'*side)
     return result
 
@@ -496,3 +496,16 @@ class Calculator():
         if num2 == 0:
             return "approaches infinity"
         return num1 / num2
+
+# Creates a "Collatz" sequence and returns its maximum number. The sequence is a list starting from the given number. If the number is even, the next number is halved. If odd, it is multiplied by 3 and 1 is added. This contionues until the current number is 1.
+def max_collatz(num):
+    # Conditional used to avoid an infinite loop
+    if num != int(num) or num < 0:
+        return num
+    collatz = [num]
+    while collatz[-1] != 1:
+        collatz.append(
+            collatz[-1] / 2) if collatz[-1] % 2 == 0 else collatz.append((collatz[-1] * 3) + 1)
+    return int(max(collatz))
+
+print(max_collatz(-2))
