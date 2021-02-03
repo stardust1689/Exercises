@@ -456,3 +456,51 @@ class Circle {
     getCircumfrence = () => 2 * Math.PI * this.radius;
 }
 
+// Returns the escape velocity of a body with mass m and radius r. Escape velocity is the velocity required to escape the gravitational pull from a body.
+// Function reqiures either a given mass, radius, and an optional planet that is in a built-in "planets" object. If a planet is given, the planet's mass and radius override the given mass and radius.
+function escapeVelocity(mass, radius, planet=-1) {
+    if (planet !== -1) {
+        earthMass = 5.976 * 10**24;
+        earthRadius = 6.378 * 10**6;
+        planets = {
+            'mercury': {
+                mass: 0.0558, 
+                radius: 0.383
+            },
+            'venus': {
+                mass: 0.815, 
+                radius: 0.95
+            },
+            'earth': {
+                mass: 1, 
+                radius: 1
+            },
+            'mars': {
+                mass: 0.107, 
+                radius: 0.532
+            },
+            'jupiter': {
+                mass: 318, 
+                radius: 11.2
+            },
+            'saturn': {
+                mass: 95.1, 
+                radius: 9.41
+            },
+            'george': {
+                mass: 14.5, 
+                radius: 4.06
+            },
+            'neptune': {
+                mass: 17.2, 
+                radius: 3.88
+            }
+        }
+        if (planet in planets) {
+            mass = planets[planet].mass * earthMass
+            radius = planets[planet].radius * earthRadius
+        }
+    }
+
+    return Math.sqrt(13.34 * 10**-11 * mass / radius)
+}
