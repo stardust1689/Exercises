@@ -195,6 +195,16 @@ def sum_primes(lst):
             primes.append(num)
     return sum(primes)
 
+# Returns the next prime number after the given number
+def next_prime(num):
+    current = math.ceil(num)
+    if current == num:
+        current += 1
+    while True:
+        if is_prime(current):
+            return current
+        current += 1
+
 # Returns the factorial of the number (number!, or 1 * 2 * 3 *...* (number-1) * number)
 def factorial(number):
     if number == 0 or number == 1:
@@ -507,5 +517,3 @@ def max_collatz(num):
         collatz.append(
             collatz[-1] / 2) if collatz[-1] % 2 == 0 else collatz.append((collatz[-1] * 3) + 1)
     return int(max(collatz))
-
-print(max_collatz(-2))
