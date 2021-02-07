@@ -209,8 +209,6 @@ def next_prime(num):
 def filter_primes(lst):
     return list(filter(lambda num: is_prime(num), lst))
 
-print(filter_primes([1,4,7,2,8,10,71,65,57,101,3.4]))
-
 # Returns the factorial of the number (number!, or 1 * 2 * 3 *...* (number-1) * number)
 def factorial(number):
     if number == 0 or number == 1:
@@ -523,3 +521,11 @@ def max_collatz(num):
         collatz.append(
             collatz[-1] / 2) if collatz[-1] % 2 == 0 else collatz.append((collatz[-1] * 3) + 1)
     return int(max(collatz))
+
+# Takes a list of numbers, removes 25% from each number that is NOT the smallest number on the list, then adds the sum total of these removals to the smallest number.
+def show_the_love(lst):
+    give = 0
+    for num in lst:
+        if num != min(lst):
+            give += 0.25 * num
+    return [0.75 * num if num != min(lst) else num + give for num in lst]
