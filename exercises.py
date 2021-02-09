@@ -534,3 +534,16 @@ def show_the_love(lst):
             give += 0.25 * num
     return [0.75 * num if num != min(lst) else num + give for num in lst]
 
+#
+def chunkify(lst, n):
+    result = []
+    while len(lst) > 0:
+        result.append(lst[0:n])
+        for num in range(n):
+            try: lst.pop(0) 
+            except IndexError: break
+
+    return result
+
+
+print(chunkify([2, 3, 4, 5, 6], 2))
