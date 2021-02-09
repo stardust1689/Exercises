@@ -176,7 +176,7 @@ def majority_vote(lst):
 
 # Checks whether given number is prime
 def is_prime(num):
-    if num <= 3 and int(num) == num:
+    if num <= 3 and int(num) == num and num != 1:
         return True
     try:
         range(2, num)
@@ -208,6 +208,10 @@ def next_prime(num):
 # Takes a list of numnbers and returns a list those number which are prime. Non-integers and negative numbers, and 0 are not included.
 def filter_primes(lst):
     return list(filter(lambda num: is_prime(num), lst))
+
+# Returns the number of prime numbers up to and including the given number
+def number_of_primes(num):
+    return len(filter_primes(list(range(2,num+1))))
 
 # Returns the factorial of the number (number!, or 1 * 2 * 3 *...* (number-1) * number)
 def factorial(number):
@@ -529,3 +533,4 @@ def show_the_love(lst):
         if num != min(lst):
             give += 0.25 * num
     return [0.75 * num if num != min(lst) else num + give for num in lst]
+
