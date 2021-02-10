@@ -534,7 +534,7 @@ def show_the_love(lst):
             give += 0.25 * num
     return [0.75 * num if num != min(lst) else num + give for num in lst]
 
-#
+# Takes a list and returns it split into several lists with a length of n. If the list cannot be split evenly, the last chunk's length is the remainder.
 def chunkify(lst, n):
     result = []
     while len(lst) > 0:
@@ -545,5 +545,11 @@ def chunkify(lst, n):
 
     return result
 
-
-print(chunkify([2, 3, 4, 5, 6], 2))
+# Takes a string and returns the number of pairs for each unique item
+def item_pairs(string):
+    pairs = 0
+    lst = string.split()
+    uniques = set(lst)
+    for item in uniques:
+        pairs += math.floor(lst.count(item) / 2) 
+    return pairs
