@@ -553,3 +553,13 @@ def item_pairs(string):
     for item in uniques:
         pairs += math.floor(lst.count(item) / 2) 
     return pairs
+
+# "Loves me, loves me not" is a traditional method of determining whether a person who loves another loves him back. The person plucks off the petals of a flower one at a time, saying "Loves me" then "loves me not" repatedly until all of the petals have been plucked. This function simulates that method with a flower of a given number of petals.
+def loves_me(num):
+    result = ""
+    petal = 1
+    while petal < num:
+        result += "Loves me, " if petal % 2 != 0 else "Loves me not, "
+        petal += 1
+    result += "LOVES ME" if petal % 2 != 0 else "LOVES ME NOT"
+    return result
