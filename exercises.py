@@ -563,3 +563,24 @@ def loves_me(num):
         petal += 1
     result += "LOVES ME" if petal % 2 != 0 else "LOVES ME NOT"
     return result
+
+# When a water balloon pops, it soaks the area around it. This function simulates that by takeing a list of numbers with only one nonzero element and returns a "soaked" list.
+def pop(lst):
+    nonzero = max(lst)
+    ind = lst.index(nonzero)
+    while ind > 0 and nonzero > 0:
+        lst[ind - 1] = nonzero - 1
+        nonzero -= 1
+        ind -= 1
+    nonzero = max(lst)
+    ind = lst.index(nonzero)
+    while ind < len(lst) and nonzero > 0:
+        lst[ind + 1] = nonzero - 1
+        nonzero -= 1
+        ind += 1
+    return lst
+
+
+
+    
+    
