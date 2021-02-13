@@ -2,6 +2,7 @@ import math
 import string
 import datetime
 import functools
+import re
 
 # Returns a list of odd products from a list of numbers, using check_odd() callback to filter out any even numbers
 def check_odd(number):
@@ -580,7 +581,32 @@ def pop(lst):
         ind += 1
     return lst
 
+# Takes a list of equations presented as strings and evaluates the percentage of equations that ore correct.
+# Only one operation (addition or subtraction) is allowed, and it must be on the left side of the equation.
+# Only integers allowed.
+# Negative numbers are allowed, but only on the right side of the equation.
+def mark_math(lst):
+    correct = 0
+    num_pattern = re.compile(r'\d+')
+    op_pattern = re.compile(r'\+|-')
 
+    for attempt in lst:
+        eqn_lst = attempt.split("=")
+        numbers = list(map(lambda num: int(
+            num), num_pattern.findall(eqn_lst[0]) + eqn_lst[1:]))
+        operation = op_pattern.findall(attempt)
+
+        if operation[0] == "+":
+            if numbers[0] + numbers[1] == numbers[2]:
+                correct += 1
+        elif operation[0] == "-":
+            if numbers[0] - numbers[1] == numbers[2]:
+                correct += 1
+    
+    return str(round(correct/len(lst) * 100)) + "%"
+
+
+        
 
     
     
