@@ -497,10 +497,18 @@ function escapeVelocity(mass, radius, planet=-1) {
             }
         }
         if (planet in planets) {
-            mass = planets[planet].mass * earthMass
-            radius = planets[planet].radius * earthRadius
+            mass = planets[planet].mass * earthMass;
+            radius = planets[planet].radius * earthRadius;
         }
     }
 
-    return Math.sqrt(13.34 * 10**-11 * mass / radius)
+    return Math.sqrt(13.34 * 10**-11 * mass / radius);
+}
+
+function objectToArray(obj)  {
+    arrFromObj = [];
+    for (item in obj) {
+        arrFromObj.push([item, obj[item]]);
+    }
+    return arrFromObj;
 }
