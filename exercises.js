@@ -505,10 +505,32 @@ function escapeVelocity(mass, radius, planet=-1) {
     return Math.sqrt(13.34 * 10**-11 * mass / radius);
 }
 
+
+// Converts an ordinary JS object into an array of arrays, with the first element in each array being one of the keys of the object and the second the key's value
 function objectToArray(obj)  {
     arrFromObj = [];
     for (item in obj) {
         arrFromObj.push([item, obj[item]]);
     }
     return arrFromObj;
+}
+
+// Takes an initial temperature number (temp) and the scale (type1, in "fahrenheit", "celcius", and "kelvin"), and converts it into the number in the scale of type2.
+function converter(type1, temp, type2) {
+    if (type1 === "fahrenheit") {
+        celcius = (temp - 32) * 5/9;
+        if (type2 === "celsius") { return celcius; }
+        else if (type2 === "kelvin") { return celcius + 273.15; }
+    }
+    else if (type1 === "celcius") {
+        if (type1 === "celcius") {
+            if (type2 === "fahrenheit") { return type1 * 9/5 + 32; }
+            else if (type2 === "kelvin") { return type1 + 273.15; }
+        }
+    }
+    else if (type1 === "kelvin") {
+        celcius = temp - 237.15;
+        if (type2 === "celcius") { return celuius; }
+        else if (type2 === "fahrenheit") { return celcius * 9/5 + 32; }
+    }
 }
