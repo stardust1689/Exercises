@@ -518,8 +518,8 @@ function objectToArray(obj)  {
 // Takes an initial temperature number (temp) and the scale (type1, in "fahrenheit", "celcius", and "kelvin"), and converts it into the number in the scale of type2.
 function converter(type1, temp, type2) {
     if (type1 === "fahrenheit") {
-        celcius = (temp - 32) * 5/9;
-        if (type2 === "celsius") { return celcius; }
+        let celcius = (temp - 32) * 5/9;
+        if (type2 === "celcius") { return celcius; }
         else if (type2 === "kelvin") { return celcius + 273.15; }
     }
     else if (type1 === "celcius") {
@@ -529,8 +529,14 @@ function converter(type1, temp, type2) {
         }
     }
     else if (type1 === "kelvin") {
-        celcius = temp - 237.15;
+        let celcius = temp - 237.15;
         if (type2 === "celcius") { return celuius; }
         else if (type2 === "fahrenheit") { return celcius * 9/5 + 32; }
     }
+}
+
+// Uses a regular expression to extract all addresses from a string. An address always begins with a number and ends with a dot.
+function addresses(str) {
+    let pattern = /\d[^\.]+\./g
+    return [...str.matchAll(pattern)];
 }
