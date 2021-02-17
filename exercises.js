@@ -540,3 +540,9 @@ function addresses(str) {
     let pattern = /\d[^\.]+\./g
     return [...str.matchAll(pattern)];
 }
+
+// Uses a regex to extract all complete words from a string
+function words(str) {
+    let pattern = /\w+/g
+    return [...str.matchAll(pattern)];
+}
