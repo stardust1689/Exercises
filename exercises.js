@@ -546,3 +546,14 @@ function words(str) {
     let pattern = /\w+/g
     return [...str.matchAll(pattern)];
 }
+
+// Returns the number of "<div>" elements in a string, assumed to be taken from an HTML file
+function divCount(str) {
+    let pattern = /(<div>)/g
+    return [...str.matchAll(pattern)].length;
+}
+
+// Takes an array of strings and returns the array whose string have numbers in them. If none of the strings pass the filter, this returns an empty array.
+function numInStrFilters(arr) {
+    return arr.filter(str => str.split("").some(char => char == Number(char)))
+}
