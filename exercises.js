@@ -537,23 +537,29 @@ function converter(type1, temp, type2) {
 
 // Uses a regular expression to extract all addresses from a string. An address always begins with a number and ends with a dot.
 function addresses(str) {
-    let pattern = /\d[^\.]+\./g
+    let pattern = /\d[^\.]+\./g;
     return [...str.matchAll(pattern)];
 }
 
 // Uses a regex to extract all complete words from a string
 function words(str) {
-    let pattern = /\w+/g
+    let pattern = /\w+/g;
     return [...str.matchAll(pattern)];
 }
 
 // Returns the number of "<div>" elements in a string, assumed to be taken from an HTML file
 function divCount(str) {
-    let pattern = /(<div>)/g
+    let pattern = /(<div>)/g;
     return [...str.matchAll(pattern)].length;
 }
 
 // Takes an array of strings and returns the array whose string have numbers in them. If none of the strings pass the filter, this returns an empty array.
 function numInStrFilters(arr) {
-    return arr.filter(str => str.split("").some(char => char == Number(char)))
+    return arr.filter(str => str.split("").some(char => char == Number(char)));
+}
+
+// Uses a regex to test whether a string is a valid PIN. A "valid PIN" is defined as having exactly 4 OR 6 numerical characters. No more or less, not 5 numberals, and no letters or whitespaces.
+function validPIN(str) {
+    pattern = /^\d{4}$|^\d{6}$/g;
+    return pattern.test(str);
 }
