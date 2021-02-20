@@ -563,3 +563,9 @@ function validPIN(str) {
     pattern = /^\d{4}$|^\d{6}$/g;
     return pattern.test(str);
 }
+
+// Checks if a string is a valid emeil address via a regex
+function checkEmail(str) {
+    emailPattern = /^[^\.@]+@[^\.@]+\.[A_Za-z]{3}$/g;
+    return Boolean(str.match(emailPattern));
+}
