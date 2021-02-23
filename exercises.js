@@ -564,8 +564,13 @@ function validPIN(str) {
     return pattern.test(str);
 }
 
-// Checks if a string is a valid emeil address via a regex
+// Checks if a string is a valid email address via a regex
 function checkEmail(str) {
     emailPattern = /^[^\.@]+@[^\.@]+\.[A_Za-z]{3}$/g;
     return Boolean(str.match(emailPattern));
+}
+
+// Takes a string and uses regexes to return the string with all of its capital letters moved to the front
+function capToFront(str) {
+    return str.match(/[A-Z]/g).join("") + str.match(/[^A-Z]/g).join("");
 }
