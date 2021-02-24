@@ -574,3 +574,14 @@ function checkEmail(str) {
 function capToFront(str) {
     return str.match(/[A-Z]/g).join("") + str.match(/[^A-Z]/g).join("");
 }
+
+// Uses a regex to determin if the string is a valid initial, defined as containing only capital letters with exactly one dot then one whitespace between them. Whitespaces at the beginning or end of the string are allowed.
+function initalsAreValid(str) {
+    let trimmedStr = str.trim() + " ";
+    let initialPattern = /[A-Z].\s/g
+    let match = trimmedStr.match(initialPattern)
+    if (match) {
+        if (match.length === trimmedStr.length / 3) {return true}
+    }
+    return false;
+}
