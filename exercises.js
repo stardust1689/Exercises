@@ -585,3 +585,18 @@ function initalsAreValid(str) {
     }
     return false;
 }
+
+str = "One two three four"
+
+// Takes a string and reverses any word within the string that has an odd length. Words include any letters and numbers.
+function reverseOdd(str) {
+    let result = "";
+    let parts = str.match(/[A-Za-z0-9]+|[^A-Za-z0-9]+/g);
+    for (part of parts) {
+        if (part.match(/[A-Za-z0-9]+/g) && part.match(/[A-Za-z0-9]+/g).length % 2 !== 0) {
+            result += part.split("").reverse().join("");
+        }
+        else { result += part }
+    }
+    return result;
+}
