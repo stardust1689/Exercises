@@ -605,6 +605,21 @@ def mark_math(lst):
     
     return str(round(correct/len(lst) * 100)) + "%"
 
+# Given the equation a*x**2 + b*x + c = 0, this function returns the number of real solutions.
+def solutions(a,b,c):
+    if a == 0 and b == 0 and c != 0:
+        return "invalid equation"
+    elif a == 0 and b == 0 and c == 0:
+        return 0
+    discriminant = b**2 - 4*a*c
+    if discriminant > 0:
+        return 2
+    elif discriminant == 0:
+        return 1
+    else:
+        return 0
+
+
 
         
 
