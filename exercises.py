@@ -6,22 +6,13 @@ import re
 
 # Returns a list of odd products from a list of numbers, using check_odd() callback to filter out any even numbers
 def check_odd(number):
-  if number % 2 != 0:
-    return True
-  return False
+    if number % 2 != 0:
+        return True
+    return False
 
-def find_odd_products(integers):
-  odd_integers = list(set(filter(check_odd, integers)))
-  odd_products = []
-  while len(odd_integers) > 1:
-    for ind in range(1, len(odd_integers)):
-      odd_products.append([odd_integers[0], odd_integers[ind]])
-    odd_integers.pop(0)
-  return odd_products
-
-# seq1 = [1,2,3,4,5,6,7,7,8,6]
-# seq2 = (9,10,11,12,12,13,14,15,16,17)
-# seq3 = {18,19,20,21,22,23,25,26,29}
+# Returns a list of numbers, each the next multiple of num, with a given length
+def list_of_multiples(num, length):
+    return [num * (i+1) for i in range(length)]
 
 # Prints all items in a for loop in reverse order as their negative values
 def print_for_loop(start = 10, end = 1, step = -1):
@@ -618,6 +609,13 @@ def solutions(a,b,c):
         return 1
     else:
         return 0
+
+# If the concatenation of a positive integer plus (itself + 1) is a perfect square, the number is a Sastry number. This function evaluates this condition with a positive integer.
+def sastry(n):
+    concat = int(str(n) + str(n + 1))
+    root = concat ** (1/2)
+    return root == int(root)
+
 
 
 
