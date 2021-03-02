@@ -616,10 +616,6 @@ def sastry(n):
     root = concat ** (1/2)
     return root == int(root)
 
-
-
-
-        
-
-    
-    
+def non_digits(string):
+    pattern = re.compile(r'\D+')
+    return " ".join(pattern.findall(string))
