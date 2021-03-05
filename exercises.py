@@ -624,3 +624,11 @@ def non_digits(string):
 # Takes the radii of two concentric spheres and calculates the volume of the outer shell; that is the difference in the two spheres' volumes; rounded to three decimals
 def shell_volume(outer, inner):
     return round((4/3) * math.pi * (outer**3 - inner**3), 3)
+
+# "Inverts" a dictionary, or takes the values of a dictionary and makes them the keys, and vice-versa
+def invert(dictionary): 
+    inverted = {}
+    for key in dictionary:
+        inverted[dictionary[key]] = key
+    return inverted
+    
