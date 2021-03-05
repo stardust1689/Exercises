@@ -616,6 +616,11 @@ def sastry(n):
     root = concat ** (1/2)
     return root == int(root)
 
+# Seperates a string by any digits then rejoins each segment with a whtiespace
 def non_digits(string):
     pattern = re.compile(r'\D+')
     return " ".join(pattern.findall(string))
+
+# Takes the radii of two concentric spheres and calculates the volume of the outer shell; that is the difference in the two spheres' volumes; rounded to three decimals
+def shell_volume(outer, inner):
+    return round((4/3) * math.pi * (outer**3 - inner**3), 3)
