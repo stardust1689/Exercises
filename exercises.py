@@ -621,7 +621,7 @@ def non_digits(string):
     pattern = re.compile(r'\D+')
     return " ".join(pattern.findall(string))
 
-# Takes the radii of two concentric spheres and calculates the volume of the outer shell; that is the difference in the two spheres' volumes; rounded to three decimals
+# Takes the radii of two concentric spheres and calculates the volume of the outer shell, or the difference in the two spheres' volumes, rounded to three decimals
 def shell_volume(outer, inner):
     return round((4/3) * math.pi * (outer**3 - inner**3), 3)
 
@@ -631,4 +631,9 @@ def invert(dictionary):
     for key in dictionary:
         inverted[dictionary[key]] = key
     return inverted
-    
+
+# Takes the volume of a cube and return its diagonal, or the length through the cube from one vertex to the opposite vertex, rounded to two decimal places
+def cube_diagonal(volume):
+    edge = volume**(1/3)
+    side_diagonal = 2**(1/2) * edge
+    return round((edge**2 + side_diagonal**2)**(1/2), 2)
