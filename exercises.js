@@ -600,3 +600,8 @@ function reverseOdd(str) {
     }
     return result;
 }
+
+//
+function tetra(int) {
+    return (int * (int + 1) * (int + 2)) / 6
+} 
