@@ -601,7 +601,18 @@ function reverseOdd(str) {
     return result;
 }
 
-//
+// Takes an integer as the height of a tetrahedral in marble layers and returns the number of marbles
 function tetra(int) {
     return (int * (int + 1) * (int + 2)) / 6
 } 
+
+// Concatanates a variable number of arrays into a single array
+function concat() {
+    result = [];
+    for (let arr of arguments) {
+        for (let item of arr) {
+            result.push(item);
+        }
+    }
+    return result;
+}
