@@ -616,3 +616,18 @@ function concat() {
     }
     return result;
 }
+
+// Takes an array of items that are either numbers or arrays which contain one number. It would be easy for a human to sort it, but trickier for a computer. This function sorts the array regaring all nested arrays as numbers and return the sorted array, with the nested arrays remaining arrays.
+function sortIt(arr) {
+    let nums = arr.map(item => Array.isArray(item) ? item[0] : item);
+    let numsCopy = nums.slice();
+    let result = [];
+    while (numsCopy.length > 0) {
+        let minNum = Math.min(...numsCopy);
+        let minIndex = nums.indexOf(minNum);
+        let minCopyIndex = numsCopy.indexOf(minNum);
+        result.push(arr[minIndex]);
+        numsCopy.splice(minCopyIndex, 1);
+    }
+    return result
+}
