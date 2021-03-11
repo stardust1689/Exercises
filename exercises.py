@@ -637,3 +637,8 @@ def cube_diagonal(volume):
     edge = volume**(1/3)
     side_diagonal = 2**(1/2) * edge
     return round((edge**2 + side_diagonal**2)**(1/2), 2)
+
+# Takes a string and returns all non-alphanumeric and whitespace characters
+def non_alphanumeric(string):
+    pattern = re.compile(r'[^A-Za-z0-9\s]')
+    return re.findall(pattern, string)
