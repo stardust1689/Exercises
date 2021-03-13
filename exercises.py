@@ -642,3 +642,11 @@ def cube_diagonal(volume):
 def non_alphanumeric(string):
     pattern = re.compile(r'[^A-Za-z0-9\s]')
     return re.findall(pattern, string)
+
+# Takes two numbers as strings and reeturns their sum as a a string. Returns "invalid operation" if either cannot be converted into a number
+def add(num_str1, num_str2):
+    try: 
+        return str(float(num_str1) + float(num_str2))
+    except ValueError:
+        return "Invalid operation"
+
