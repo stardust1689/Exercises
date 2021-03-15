@@ -650,3 +650,6 @@ def add(num_str1, num_str2):
     except ValueError:
         return "Invalid operation"
 
+# Determines whether two lines are parallel. Lines are represented by two lists with three elements, with the list [a,b,c] reflecting the line ax + by = c in xy-coordinates.
+def lines_are_parallel(line1, line2):
+    return (line1[0] / line1[1]) == (line2[0] / line2[1])
