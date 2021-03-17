@@ -650,3 +650,16 @@ function leftRotation(str) {
     }
     return result
 }
+
+function rightRotation(str) {
+    let result = [];
+    for (let i = 0; i < str.length; i++) {
+        let addThis = str.slice();
+        for (let j = 0; j < i; j++) {
+            lastElement = addThis[addThis.length - 1];
+            addThis = lastElement + addThis.replace(lastElement, "");
+        }
+        result.push(addThis)
+    }
+    return result
+}
