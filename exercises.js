@@ -631,3 +631,22 @@ function sortIt(arr) {
     }
     return result
 }
+
+function calc(expression) {
+    pattern = /[^\+\-\*\/]/g;
+    return expression.match(pattern);
+}
+
+// Consider a string "str". leftRotation(str) and rightRotation(str) returns an array of strings with each string "rotated" to the left or right such that their elements are pushed to the left are right, with the furthest element moved to the othe end to the string.
+function leftRotation(str) {
+    let result = [];
+    for (let i = 0; i < str.length; i++) {
+        let addThis = str.slice();
+        for (let j = 0; j < i; j++) {
+            addThis += addThis[0];
+            addThis = addThis.replace(addThis[0], "");
+        }
+        result.push(addThis)
+    }
+    return result
+}
