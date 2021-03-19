@@ -679,3 +679,9 @@ def check_score(lsts):
             except KeyError:
                 continue
     return score if score > 0 else 0
+
+# Takes a string and returns the string with all letters lowercase except the first character.
+def normalize(string):
+    first_letter_cap = string[0].upper()
+    lower_conversion = map(lambda char: char.lower(), list(string[1:]))
+    return first_letter_cap + "".join(lower_conversion)
