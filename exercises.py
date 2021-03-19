@@ -660,3 +660,22 @@ class NumDiv():
         self.ones = round(num)
         self.threes = round(num / 3)
         self.nines = round(num / 9)
+
+# Takes a list of lists and checks the "score" of each element (indicated in the function). If the TOTAL score is > 0, the score is returned; else 0 is returned.
+def check_score(lsts):
+    score_values = {
+        "#": 5,
+        "O": 3,
+        "X": 1,
+        "!": -1,
+        "!!": -3,
+        "!!!": -5
+    }
+    score = 0
+    for lst in lsts:
+        for item in lst:
+            try:
+                score += score_values[string]
+            except KeyError:
+                continue
+    return score if score > 0 else 0
