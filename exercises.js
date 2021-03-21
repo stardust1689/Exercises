@@ -646,9 +646,9 @@ function leftRotation(str) {
             addThis += addThis[0];
             addThis = addThis.replace(addThis[0], "");
         }
-        result.push(addThis)
+        result.push(addThis);
     }
-    return result
+    return result;
 }
 
 function rightRotation(str) {
@@ -659,9 +659,9 @@ function rightRotation(str) {
             lastElement = addThis[addThis.length - 1];
             addThis = lastElement + addThis.replace(lastElement, "");
         }
-        result.push(addThis)
+        result.push(addThis);
     }
-    return result
+    return result;
 }
 
 // Takes a number and checks whether all of its digits are the same. Non-numbers return false.
@@ -669,4 +669,13 @@ function isRepdigit(num) {
     if (typeof num !== "number") { return false; }
     let digitArray = Math.abs(num).toString().split("").filter(digit => digit !== ".");
     return digitArray.slice(0, digitArray.length - 1).every((digit, ind) => digit === digitArray[ind + 1]);
+}
+
+// Take a number and returns the number of digits. Takes any number, including 0, decimals, and negative numbers. Any trailing zeros do not count as digits.
+function countDigits(num) {
+    let len = Math.abs(num).toString().split("").filter(digit => digit !== ".").length;
+    if (num < 1 && num !== 0 && num > -1) {
+        len -= 1;
+    }
+    return len;
 }
