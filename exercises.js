@@ -663,3 +663,10 @@ function rightRotation(str) {
     }
     return result
 }
+
+// Takes a number and checks whether all of its digits are the same. Non-numbers return false.
+function isRepdigit(num) {
+    if (typeof num !== "number") { return false; }
+    let digitArray = Math.abs(num).toString().split("").filter(digit => digit !== ".");
+    return digitArray.slice(0, digitArray.length - 1).every((digit, ind) => digit === digitArray[ind + 1]);
+}
