@@ -685,3 +685,17 @@ def normalize(string):
     first_letter_cap = string[0].upper()
     lower_conversion = map(lambda char: char.lower(), list(string[1:]))
     return first_letter_cap + "".join(lower_conversion)
+
+# Takes two lists, each with two elements representing the numerator and denomenator of a single fraction, and returns the sum of the two fractions in the same format, plus the nearest integer to the sum.
+def sum_fractions(frac1, frac2):
+    frac1_common_den = [frac1[0] * frac2[1], frac1[1] * frac2[1]]
+    frac2_common_den = [frac2[0] * frac1[1], frac2[1] * frac1[1]]
+    frac_sum = [frac1_common_den[0] + frac2_common_den[0], frac1_common_den[1]]
+    lowest_possible_fact = min(frac1_common_den[0], frac2_common_den[0])
+    for num in range(lowest_possible_fact, 0, -1):
+        if frac1_common_den[0] % num == 0 and frac2_common_den[0] % num == 0:
+            frac_sum = [frac_sum[0] / num, frac_sum[1] / num]
+            break
+    return [int(frac_sum[0]), int(frac_sum[1])], int(frac_sum[0] / frac_sum[1])
+
+print(sum_fractions([2,3],[1,2]))
