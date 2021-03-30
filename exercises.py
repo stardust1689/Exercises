@@ -698,4 +698,6 @@ def sum_fractions(frac1, frac2):
             break
     return [int(frac_sum[0]), int(frac_sum[1])], int(frac_sum[0] / frac_sum[1])
 
-print(sum_fractions([2,3],[1,2]))
+# Takes a string and returns a score of how "happy" it is. Each instance of ":)" and "(:" add 1, and each instance of ":(" and "):" take away 1.
+def happiness_number(string):
+    return string.count(":)") + string.count("(:") - string.count(":(") - string.count("):")
