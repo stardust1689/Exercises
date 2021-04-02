@@ -679,3 +679,13 @@ function countDigits(num) {
     }
     return len;
 }
+
+// Takes a number and returns how many consecutive natural logarithms it can handle; i.e. how many ln's in ln(ln(ln(...ln(num)))) is possible while ramining valid.
+function howManyNatLogs(num) {
+    let numOfLogs = 0;
+    while (num > 0) {
+        num = Math.log(num);
+        numOfLogs++;
+    }
+    return numOfLogs;
+}
