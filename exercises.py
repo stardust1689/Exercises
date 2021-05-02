@@ -686,8 +686,10 @@ def normalize(string):
     lower_conversion = map(lambda char: char.lower(), list(string[1:]))
     return first_letter_cap + "".join(lower_conversion)
 
-# Takes two lists, each with two elements representing the numerator and denomenator of a single fraction, and returns the sum of the two fractions in the same format, plus the nearest integer to the sum.
 def sum_fractions(frac1, frac2):
+    '''
+    Takes two lists, each with two elements representing the numerator and denomenator of a single fraction, and returns the sum of the two fractions in the same format, plus the nearest integer to the sum.
+    '''
     frac1_common_den = [frac1[0] * frac2[1], frac1[1] * frac2[1]]
     frac2_common_den = [frac2[0] * frac1[1], frac2[1] * frac1[1]]
     frac_sum = [frac1_common_den[0] + frac2_common_den[0], frac1_common_den[1]]
@@ -698,6 +700,32 @@ def sum_fractions(frac1, frac2):
             break
     return [int(frac_sum[0]), int(frac_sum[1])], int(frac_sum[0] / frac_sum[1])
 
-# Takes a string and returns a score of how "happy" it is. Each instance of ":)" and "(:" add 1, and each instance of ":(" and "):" take away 1.
+
 def happiness_number(string):
+    '''
+    Takes a string and returns a score of how "happy" it is. Each instance of ":)" and "(:" add 1, and each instance of ":(" and "):" take away 1.
+    '''
     return string.count(":)") + string.count("(:") - string.count(":(") - string.count("):")
+
+def same_length(sequence):
+    '''
+    Takes a number or string and checks whether every consecutive sequence of ones is followed by a consecutive sequence of zeroes of the same length.
+    '''
+    if type(sequence) == int:
+        sequence = str(sequence)
+    if sequence.count("0") + sequence.count("1") != len(sequence):
+        return False
+    consecutive_nums = []
+    new_cons_string = ""
+    for i in range(len(sequence)):
+        if new_cons_string == "" or sequence[i] in new_cons_string:
+            new_cons_string += sequence[i]
+        else:
+            consecutive_nums.append(new_cons_string)
+            new_cons_string = sequence[i]
+        if i == len(sequence) - 1:
+            consecutive_nums.append(new_cons_string)
+    for i in range(0, len(consecutive_nums), 2):
+        if len(consecutive_nums[i]) != len(consecutive_nums[i+1]):
+            return False
+    return True
