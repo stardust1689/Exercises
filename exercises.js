@@ -689,3 +689,23 @@ function howManyNatLogs(num) {
     }
     return numOfLogs;
 }
+
+// Two functions determining the longest word in an array that can fit into a seven-segment display, as seen on some digital clocks.
+function invalidCheck(word) {
+    for (letter of invalid) {
+        if (word.includes(letter)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function longest7SegmentWord(arrOfWords) {
+    invalid = ["k", "m", "v", "w", "x"];
+    validWords = arrOfWords.filter(word => invalidCheck(word));
+    if (!validWords.length) {
+        return "";
+    }
+    lengths = validWords.map(word => word.length);
+    return validWords[lengths.indexOf(Math.max(...lengths))];
+}
