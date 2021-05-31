@@ -869,3 +869,32 @@ def same_length(sequence):
         if len(consecutive_nums[i]) != len(consecutive_nums[i+1]):
             return False
     return True
+
+def pentagonal(number):
+    '''
+    Consider a group of marbles arranged as a series of pentagons with a single marble at the center surrounded by a pentagon of 2 marbles per side, surrounded by another pentagon with 3 per side, etc.
+    
+    This function returns the total number of marbles depending on how many sides the outermost pentagon is, or how "deep" the series is.
+    '''
+    total = 1
+    if int(number) != number or number < 1:
+        return 0
+    if number > 1:
+        for num in range(2, number+1):
+            total += 5 * (num - 1)
+    return total
+
+def weekday_dutch(date_str):
+    dutch_days = {
+        0: "maandag",
+        1: "dinsdag",
+        2: "woensdag",
+        3: "donerdag",
+        4: "vrijdag",
+        5: "zaterdag",
+        6: "zondag"
+    }
+    pattern = re.compile(r'\d+')
+    [day, month, year] = map(lambda num: int(num), pattern.findall(date_str))
+    date = datetime.date(year, month, day)
+    return dutch_days[date.weekday()]
