@@ -690,7 +690,7 @@ function howManyNatLogs(num) {
     return numOfLogs;
 }
 
-// Two functions determining the longest word in an array that can fit into a seven-segment display, as seen on some digital clocks.
+// Two functions determining the longest word in an array that can fit into a seven-segment display, as seen on some digital clocks. All letters are assumed to be lowercase.
 function invalidCheck(word) {
     for (letter of invalid) {
         if (word.includes(letter)) {
@@ -708,4 +708,13 @@ function longest7SegmentWord(arrOfWords) {
     }
     lengths = validWords.map(word => word.length);
     return validWords[lengths.indexOf(Math.max(...lengths))];
+}
+
+// A trianglar number sequence can be visualized by the number of dots forming the corners of a triangle then adding dots to increase the triangle's size by one layer (Example triange(3) = 1 + 2 + 3 + 6). This function takes a positive integer as the sequential argument then outputs the result.
+function triangle(num) {
+    let dots = 0;
+    for (let i = 1; i <= num; i++) {
+        dots += i;
+    }
+    return dots;
 }
